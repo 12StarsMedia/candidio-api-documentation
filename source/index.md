@@ -1,13 +1,11 @@
 ---
-title: API Reference
+title: Candidio API Reference
 
 language_tabs:
   - shell
-  - ruby
-  - python
+  - php
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -18,151 +16,92 @@ search: true
 
 # Introduction
 
+## Introduction
+
 Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
 
 We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
 This example API documentation page was created with [Slate](http://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
-# Authentication
+# Topics
 
-> To authorize, use this code:
+## Authentication
+## Nesting Models
+## Pagination
+## Versioning
 
-```ruby
-require 'kittn'
+# Core Resources
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+## Assets
+
+### Get All Assets
+
+Get all assets.
+
 ```
+/v1/assets
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
 ```
+> Assets can be scoped by Workspace or Workspace-Production.
+> `/v1/workspaces/:workspace:/assets`
+> `/v1/workspaces/:workspace:/productions/:production:/assets`
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
+## Briefs
+## Productions
+## Projects
+## Shotlists
+## Workspaces
 
-> Make sure to replace `meowmeowmeow` with your API key.
+# Account
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+## Create Account
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+Create a new workspace with attached new user account.
 
-`Authorization: meowmeowmeow`
+This is a public route and authorization is not necessary.
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
+```http
+POST https://api.candidio.com/v1/register HTTP/1.1
+Origin: https://api.candidio.com
+Content-Type: application/json
 
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Isis",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
-
-```json
 {
-  "id": 2,
-  "name": "Isis",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+"data": {
+"first_name": "Test",
+"last_name": "McTestface",
+"email": "producer@candidio.com",
+"password": "can-test",
+"is_business": false,
+"company": "McTestface Studios"
+}
 }
 ```
+> All fields required unless `is_business` is set to `false`, in which case `company` becomes optional.
 
-This endpoint retrieves a specific kitten.
 
-<aside class="warning">If you're not using an administrator API key, note that some kittens will return 403 Forbidden if they are hidden for admins only.</aside>
+## Activate Account
+## Cancel Account
+## Update User Details
+## Update Workspace Details
 
-### HTTP Request
+# Billing
 
-`GET http://example.com/kittens/<ID>`
+## Add/Update Credit Card
+## Credit Account
+## Debit Account
 
-### URL Parameters
+# Plans
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+## Update Plan
+## Cancel Plan
+## Resume Plan
+## Industries
 
+# Roles & Permissions
+
+# Templates
+
+## Templates
+## Template Collections
+## Template Types
