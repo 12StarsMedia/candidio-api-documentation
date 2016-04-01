@@ -71,15 +71,141 @@
 <h3 id="get-all-assets">Get All Assets</h3>
 
 <p>Get all assets.</p>
-<pre class="highlight plaintext"><code>/v1/assets
 
-</code></pre>
+<h3 id="create-asset">Create Asset</h3>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/v1/assets/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"workspace_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wrk_krVZWGaJ"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"bucket"</span><span class="p">:</span><span class="w"> </span><span class="s2">"upload.candidio.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"object_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"path/to/file.mp4"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file.mp4"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mp4"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234567890</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"mimetype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/mp4"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <blockquote>
-<p>Assets can be scoped by Workspace or Workspace-Production.
-<code class="prettyprint">/v1/workspaces/:workspace:/assets</code>
-<code class="prettyprint">/v1/workspaces/:workspace:/productions/:production:/assets</code></p>
+<p>The above command returns JSON structured like this:</p>
 </blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Isis"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints create asset records.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>Simple assets route, useful for admin level actions needing little scope.</p>
+
+<p><code class="prettyprint">POST https://api.candidio.com/v1/assets</code></p>
+
+<p>To create an asset for a specific Workspace (Good for My Brand).</p>
+
+<p><code class="prettyprint">POST https://api.candidio.com/v1/workspaces/&lt;ID&gt;/assets</code></p>
+
+<p>To create an asset for a specific Production.</p>
+
+<p><code class="prettyprint">POST https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/assets</code></p>
+
+<p>Assets can also be created for public Productions.</p>
+
+<p><code class="prettyprint">POST https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/assets/public</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>workspace_id</td>
+<td>yes</td>
+<td>Assign new asset to this workspace.</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>yes</td>
+<td>Assign new asset to this user.</td>
+</tr>
+<tr>
+<td>production_id</td>
+<td>no</td>
+<td>Assign new asset to this production.</td>
+</tr>
+<tr>
+<td>description_id</td>
+<td>no</td>
+<td>Assign this description to new asset.</td>
+</tr>
+<tr>
+<td>bucket</td>
+<td>yes</td>
+<td>S3 bucket where file is located.</td>
+</tr>
+<tr>
+<td>object_key</td>
+<td>yes</td>
+<td>S3 object key of file.</td>
+</tr>
+<tr>
+<td>file_name</td>
+<td>yes</td>
+<td>Original filename.</td>
+</tr>
+<tr>
+<td>file_type</td>
+<td>yes</td>
+<td>File extension.</td>
+</tr>
+<tr>
+<td>size</td>
+<td>yes</td>
+<td>Size of file in bytes.</td>
+</tr>
+<tr>
+<td>mimetype</td>
+<td>yes</td>
+<td>File mimetype.</td>
+</tr>
+<tr>
+<td>is_completed_production</td>
+<td>no</td>
+<td>Default <code class="prettyprint">false</code>, set <code class="prettyprint">true</code> for completed productions.</td>
+</tr>
+<tr>
+<td>is_stock</td>
+<td>no</td>
+<td>Set <code class="prettyprint">true</code> when creating asset for My Brand.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Required IDs are not required when they are already present in the URL.
+</aside>
 
 <h2 id="briefs">Briefs</h2>
 
@@ -87,7 +213,7 @@
 
 <h2 id="projects">Projects</h2>
 
-<h2 id="shotlists">Shotlists</h2>
+<h2 id="shots">Shots</h2>
 
 <h2 id="workspaces">Workspaces</h2>
 
