@@ -39,18 +39,93 @@ This example API documentation page was created with [Slate](http://github.com/t
 
 Get all assets.
 
-```
-/v1/assets
+### Create Asset
 
+```http
+POST /v1/assets/ HTTP/1.1
+Host: api.candidio.com
+Content-Type: application/json
+Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
+
+{
+    "data": {
+        "workspace_id": "wrk_krVZWGaJ",
+        "bucket": "upload.candidio.com",
+        "object_key": "path/to/file.mp4",
+        "file_name": "file.mp4",
+        "file_type": "mp4",
+        "size": 1234567890,
+        "mimetype": "image/mp4"
+    }
+}
 ```
-> Assets can be scoped by Workspace or Workspace-Production.
-> `/v1/workspaces/:workspace:/assets`
-> `/v1/workspaces/:workspace:/productions/:production:/assets`
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Fluffums",
+    "breed": "calico",
+    "fluffiness": 6,
+    "cuteness": 7
+  },
+  {
+    "id": 2,
+    "name": "Isis",
+    "breed": "unknown",
+    "fluffiness": 5,
+    "cuteness": 10
+  }
+]
+```
+
+These endpoints create asset records.
+
+### HTTP Request
+
+Simple assets route, useful for admin level actions needing little scope.
+
+`POST https://api.candidio.com/v1/assets`
+
+To create an asset for a specific Workspace (Good for My Brand).
+
+`POST https://api.candidio.com/v1/workspaces/<ID>/assets`
+
+To create an asset for a specific Production.
+
+`POST https://api.candidio.com/v1/workspaces/<ID>/productions/<ID>/assets`
+
+Assets can also be created for public Productions.
+
+`POST https://api.candidio.com/v1/workspaces/<ID>/productions/<ID>/assets/public`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+workspace_id | yes | Assign new asset to this workspace.
+user_id | yes | Assign new asset to this user.
+production_id | no | Assign new asset to this production.
+description_id | no | Assign this description to new asset.
+bucket | yes | S3 bucket where file is located.
+object_key | yes | S3 object key of file.
+file_name | yes | Original filename.
+file_type | yes | File extension.
+size | yes | Size of file in bytes.
+mimetype | yes | File mimetype.
+is_completed_production | no | Default `false`, set `true` for completed productions.
+is_stock | no | Set `true` when creating asset for My Brand.
+
+<aside class="success">
+Required IDs are not required when they are already present in the URL.
+</aside>
 
 ## Briefs
 ## Productions
 ## Projects
-## Shotlists
+## Shots
 ## Workspaces
 
 # Account
