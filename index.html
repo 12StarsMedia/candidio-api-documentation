@@ -13,7 +13,7 @@
 
       <script>
         $(function() {
-          setupLanguages(["shell","php"]);
+          setupLanguages(["http"]);
         });
       </script>
   </head>
@@ -28,8 +28,7 @@
     <div class="tocify-wrapper">
       <img src="images/logo.png" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="php">php</a>
+              <a href="#" data-language-name="http">http</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -69,8 +68,184 @@
 <h2 id="assets">Assets</h2>
 
 <h3 id="get-all-assets">Get All Assets</h3>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/assets?limit=100</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
 
-<p>Get all assets.</p>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asset"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ast_hashhere"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mp4"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mimetype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"video\/mp4"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234567890</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"video_duration"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"is_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"is_transcoded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"is_completed_production"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"link_download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:\/\/s3.amazonaws.com\/upload.candidio.com\/path\/to\/file.mp4"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"link_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"link_fullsize"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"link_preview_mp4"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"link_preview_webm"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints return a collection of paginated assets.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Simple assets route, useful for admin level actions needing little scope.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/assets</code></p>
+
+<p>To create an asset for a specific Workspace (Good for My Brand).</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/assets</code></p>
+
+<p>To create an asset for a specific Production.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/assets</code></p>
+
+<h4 id="query-parameters">Query Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>include</td>
+<td>no</td>
+<td>Embed a related resource.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>no</td>
+<td>Limit records returned in pagination.</td>
+</tr>
+<tr>
+<td>page</td>
+<td>no</td>
+<td>Offset to request from pagination.</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>no</td>
+<td>Scope by user, workspace, etc.</td>
+</tr>
+<tr>
+<td>sort</td>
+<td>no</td>
+<td>Field to order records by.</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>no</td>
+<td>Direction of sorting, <code class="prettyprint">asc</code> or <code class="prettyprint">desc</code>.</td>
+</tr>
+<tr>
+<td>workspace_id</td>
+<td>no</td>
+<td>For permissions, if action isn&rsquo;t performed by an admin and isn&rsquo;t set in URL.</td>
+</tr>
+</tbody></table>
+
+<h3 id="get-a-specific-asset">Get a Specific Asset</h3>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/assets/ast_hashhere</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asset"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ast_hashhere"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mp4"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mimetype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"video\/mp4"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234567890</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"video_duration"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"is_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"is_transcoded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"is_completed_production"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"link_download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:\/\/s3.amazonaws.com\/upload.candidio.com\/path\/to\/file.mp4"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"link_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"link_fullsize"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"link_preview_mp4"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"link_preview_webm"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints return a specific asset.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Simple assets route, useful for admin level actions needing little scope.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/assets/&lt;ID&gt;</code></p>
+
+<p>To retrieve an asset for a specific workspace (Good for My Brand).</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/assets/&lt;ID&gt;</code></p>
+
+<p>To retrieve an asset for a specific production.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/assets/&lt;ID&gt;</code></p>
+
+<h4 id="query-parameters">Query Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>include</td>
+<td>no</td>
+<td>Embed a related resource.</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>no</td>
+<td>Scope by user, workspace, etc.</td>
+</tr>
+<tr>
+<td>workspace_id</td>
+<td>no</td>
+<td>For permissions, if action isn&rsquo;t performed by an admin and isn&rsquo;t set in URL.</td>
+</tr>
+</tbody></table>
 
 <h3 id="create-asset">Create Asset</h3>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/v1/assets/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -80,7 +255,7 @@
 
 <span class="p">{</span><span class="w">
     </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"workspace_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wrk_krVZWGaJ"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"workspace_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wrk_hashhere"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"bucket"</span><span class="p">:</span><span class="w"> </span><span class="s2">"upload.candidio.com"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"object_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"path/to/file.mp4"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file.mp4"</span><span class="p">,</span><span class="w">
@@ -94,27 +269,32 @@
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Isis"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asset"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ast_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"meowcats"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mp4"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"mimetype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"video\/mp4"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234567890</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"video_duration"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"is_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"is_transcoded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"is_completed_production"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"link_download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:\/\/s3.amazonaws.com\/upload.candidio.com\/path\/to\/file.mp4?someargs"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"link_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"link_fullsize"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"link_preview_mp4"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"link_preview_webm"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>These endpoints create asset records.</p>
+<p>These endpoints create assets.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h4 id="http-request">HTTP Request</h4>
 
 <p>Simple assets route, useful for admin level actions needing little scope.</p>
 
@@ -132,7 +312,7 @@
 
 <p><code class="prettyprint">POST https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/assets/public</code></p>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<h4 id="json-payload-parameters">JSON Payload Parameters</h4>
 
 <table><thead>
 <tr>
@@ -142,70 +322,236 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>workspace_id</td>
-<td>yes</td>
+<td>data.workspace_id</td>
+<td>yes*</td>
 <td>Assign new asset to this workspace.</td>
 </tr>
 <tr>
-<td>user_id</td>
+<td>data.user_id</td>
 <td>yes</td>
 <td>Assign new asset to this user.</td>
 </tr>
 <tr>
-<td>production_id</td>
-<td>no</td>
+<td>data.production_id</td>
+<td>sometimes*</td>
 <td>Assign new asset to this production.</td>
 </tr>
 <tr>
-<td>description_id</td>
+<td>data.description_id</td>
 <td>no</td>
 <td>Assign this description to new asset.</td>
 </tr>
 <tr>
-<td>bucket</td>
+<td>data.bucket</td>
 <td>yes</td>
 <td>S3 bucket where file is located.</td>
 </tr>
 <tr>
-<td>object_key</td>
+<td>data.object_key</td>
 <td>yes</td>
 <td>S3 object key of file.</td>
 </tr>
 <tr>
-<td>file_name</td>
+<td>data.file_name</td>
 <td>yes</td>
 <td>Original filename.</td>
 </tr>
 <tr>
-<td>file_type</td>
+<td>data.file_type</td>
 <td>yes</td>
 <td>File extension.</td>
 </tr>
 <tr>
-<td>size</td>
+<td>data.size</td>
 <td>yes</td>
 <td>Size of file in bytes.</td>
 </tr>
 <tr>
-<td>mimetype</td>
+<td>data.mimetype</td>
 <td>yes</td>
 <td>File mimetype.</td>
 </tr>
 <tr>
-<td>is_completed_production</td>
+<td>data.is_completed_production</td>
 <td>no</td>
 <td>Default <code class="prettyprint">false</code>, set <code class="prettyprint">true</code> for completed productions.</td>
 </tr>
 <tr>
-<td>is_stock</td>
+<td>data.is_stock</td>
 <td>no</td>
 <td>Set <code class="prettyprint">true</code> when creating asset for My Brand.</td>
 </tr>
 </tbody></table>
 
 <aside class="success">
-Required IDs are not required when they are already present in the URL.
+* Required IDs are not required when they are already present in the URL.
 </aside>
+
+<h3 id="update-asset">Update Asset</h3>
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/v1/assets/ast_hashhere</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"workspace_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wrk_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"bucket"</span><span class="p">:</span><span class="w"> </span><span class="s2">"upload.candidio.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"object_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"path/to/file.mp4"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file.mp4"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mp4"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234567890</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"mimetype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/mp4"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asset"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ast_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"meowcats"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mp4"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"mimetype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"video\/mp4"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234567890</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"video_duration"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"is_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"is_transcoded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"is_completed_production"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"link_download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:\/\/s3.amazonaws.com\/upload.candidio.com\/path\/to\/file.mp4?someargs"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"link_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"link_fullsize"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"link_preview_mp4"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"link_preview_webm"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints update a specific asset.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Simple assets route, useful for admin level actions needing little scope.</p>
+
+<p><code class="prettyprint">PUT https://api.candidio.com/v1/assets/&lt;ID&gt;</code></p>
+
+<p>Update an asset while scoping within a specific workspace.</p>
+
+<p><code class="prettyprint">PUT https://api.candidio.com/v1/workspaces/&lt;ID&gt;/assets/&lt;ID&gt;</code></p>
+
+<p>Update an asset while scoping within a specific production.</p>
+
+<p><code class="prettyprint">PUT https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/assets/&lt;ID&gt;</code></p>
+
+<h4 id="json-payload-parameters">JSON Payload Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data.workspace_id</td>
+<td>no</td>
+<td>Assign new asset to this workspace.</td>
+</tr>
+<tr>
+<td>data.user_id</td>
+<td>no</td>
+<td>Assign new asset to this user.</td>
+</tr>
+<tr>
+<td>data.production_id</td>
+<td>no</td>
+<td>Assign new asset to this production.</td>
+</tr>
+<tr>
+<td>data.file_name</td>
+<td>no</td>
+<td>Original filename and display name.</td>
+</tr>
+<tr>
+<td>data.is_stock</td>
+<td>no</td>
+<td>True is asset belongs to My Brand.</td>
+</tr>
+<tr>
+<td>data.is_transcoded</td>
+<td>no</td>
+<td>True if asset has been transcoded.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Assets should not need to be updated, these routes mostly exist in case there were ever a need to correct mistakes.
+</aside>
+
+<h3 id="delete-asset">Delete Asset</h3>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/v1/assets/ast_hashhere</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"http_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints delete a specific asset.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Simple assets route, useful for admin level actions needing little scope.</p>
+
+<p><code class="prettyprint">DELETE https://api.candidio.com/v1/assets/&lt;ID&gt;</code></p>
+
+<p>To retrieve an asset for a specific workspace (Good for My Brand).</p>
+
+<p><code class="prettyprint">DELETE https://api.candidio.com/v1/workspaces/&lt;ID&gt;/assets/&lt;ID&gt;</code></p>
+
+<p>To retrieve an asset for a specific production.</p>
+
+<p><code class="prettyprint">DELETE https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/assets/&lt;ID&gt;</code></p>
+
+<h4 id="query-parameters">Query Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>include</td>
+<td>no</td>
+<td>Embed a related resource.</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>no</td>
+<td>Scope by user, workspace, etc.</td>
+</tr>
+<tr>
+<td>workspace_id</td>
+<td>no</td>
+<td>For permissions, if action isn&rsquo;t performed by an admin and isn&rsquo;t set in URL.</td>
+</tr>
+</tbody></table>
 
 <h2 id="briefs">Briefs</h2>
 
@@ -341,8 +687,7 @@ Required IDs are not required when they are already present in the URL.
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="php">php</a>
+                <a href="#" data-language-name="http">http</a>
           </div>
       </div>
     </div>
