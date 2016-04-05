@@ -59,9 +59,84 @@
 
 <h2 id="nesting-models">Nesting Models</h2>
 
+<p>You can embed related models and collections. Check documentation for specific relationships available on each resource. Dot notation can be used to retrieve further levels of nesting (i.e. ?inclue=workspace.users).</p>
+
+<h4 id="query-parameters">Query Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>include</td>
+<td>Embed a related resource.</td>
+</tr>
+</tbody></table>
+
 <h2 id="pagination">Pagination</h2>
 
-<h2 id="versioning">Versioning</h2>
+<p>Most resources will return a paginated collection of results.</p>
+
+<h4 id="query-parameters">Query Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>100</td>
+<td>Limit records returned in pagination.</td>
+</tr>
+<tr>
+<td>page</td>
+<td>1</td>
+<td>Offset to request from pagination.</td>
+</tr>
+</tbody></table>
+
+<h2 id="scoping">Scoping</h2>
+
+<p>Most resources can be scoped by workspace and user. See list of available scopes for each resource type.</p>
+
+<h4 id="query-parameters">Query Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>scope</td>
+<td>Scope by user, workspace, etc.</td>
+</tr>
+</tbody></table>
+
+<h2 id="sorting">Sorting</h2>
+
+<h4 id="query-parameters">Query Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sort</td>
+<td>Field to order records by.</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>Direction of sorting, <code class="prettyprint">asc</code> or <code class="prettyprint">desc</code>.</td>
+</tr>
+</tbody></table>
 
 <h1 id="core-resources">Core Resources</h1>
 
@@ -169,6 +244,83 @@
 <td>workspace_id</td>
 <td>no</td>
 <td>For permissions, if action isn&rsquo;t performed by an admin and isn&rsquo;t set in URL.</td>
+</tr>
+</tbody></table>
+
+<h4 id="embeddable-relationships">Embeddable Relationships</h4>
+
+<table><thead>
+<tr>
+<th>Relationship</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>description</td>
+<td>Shot description the asset is attached to, if any.</td>
+</tr>
+<tr>
+<td>owner</td>
+<td>User who uploaded the asset.</td>
+</tr>
+<tr>
+<td>production</td>
+<td>Production the asset is attached to, if any.</td>
+</tr>
+<tr>
+<td>workspace</td>
+<td>Workspace the asset belongs to.</td>
+</tr>
+</tbody></table>
+
+<h4 id="available-scopes">Available Scopes</h4>
+
+<table><thead>
+<tr>
+<th>Scope</th>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>assetType</td>
+<td>audio,image,video,other</td>
+<td>Scopes assets by mimetype with fallback on file extension.</td>
+</tr>
+<tr>
+<td>completed</td>
+<td>boolean</td>
+<td>Scope assets that are completed productions, or inverse.</td>
+</tr>
+<tr>
+<td>descriptionType</td>
+<td>string</td>
+<td>Scope assets why attached shot description type.</td>
+</tr>
+<tr>
+<td>hasFailedJobs</td>
+<td>boolean</td>
+<td>Scope assets that are missing thumbnails or haven&rsquo;t had previews generated.</td>
+</tr>
+<tr>
+<td>production</td>
+<td><ID></td>
+<td>Scope assets by production ID.</td>
+</tr>
+<tr>
+<td>stock</td>
+<td>boolean</td>
+<td>Scope assets that belong to My Brand, or inverse.</td>
+</tr>
+<tr>
+<td>user</td>
+<td><ID></td>
+<td>Scope assets by user that created them.</td>
+</tr>
+<tr>
+<td>workspace</td>
+<td><ID></td>
+<td>Scope assets by workspace they belong to.</td>
 </tr>
 </tbody></table>
 
