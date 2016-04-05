@@ -26,9 +26,46 @@ This example API documentation page was created with [Slate](http://github.com/t
 # Topics
 
 ## Authentication
+
 ## Nesting Models
+
+You can embed related models and collections. Check documentation for specific relationships available on each resource. Dot notation can be used to retrieve further levels of nesting (i.e. ?inclue=workspace.users).
+
+#### Query Parameters
+
+Parameter | Description
+--------- | -----------
+include | Embed a related resource.
+
 ## Pagination
-## Versioning
+
+Most resources will return a paginated collection of results.
+
+#### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+limit | 100 | Limit records returned in pagination.
+page | 1 | Offset to request from pagination.
+
+## Scoping
+
+Most resources can be scoped by workspace and user. See list of available scopes for each resource type.
+
+#### Query Parameters
+
+Parameter | Description
+--------- | -----------
+scope | Scope by user, workspace, etc.
+
+## Sorting
+
+#### Query Parameters
+
+Parameter | Description
+--------- | -----------
+sort | Field to order records by.
+direction | Direction of sorting, `asc` or `desc`.
 
 # Core Resources
 
@@ -98,7 +135,7 @@ To create an asset for a specific Production.
 #### Query Parameters
 
 Parameter | Required | Description
---------- | ------- | -----------
+--------- | -------- | -----------
 include | no | Embed a related resource.
 limit | no | Limit records returned in pagination.
 page | no | Offset to request from pagination.
@@ -106,6 +143,28 @@ scope | no | Scope by user, workspace, etc.
 sort | no | Field to order records by.
 direction | no | Direction of sorting, `asc` or `desc`.
 workspace_id | no | For permissions, if action isn't performed by an admin and isn't set in URL.
+
+#### Embeddable Relationships
+
+Relationship | Description
+------------ | -----------
+description | Shot description the asset is attached to, if any.
+owner | User who uploaded the asset.
+production | Production the asset is attached to, if any.
+workspace | Workspace the asset belongs to.
+
+#### Available Scopes
+
+Scope | Argument | Description
+----- | -------- | -----------
+assetType | audio,image,video,other | Scopes assets by mimetype with fallback on file extension.
+completed | boolean | Scope assets that are completed productions, or inverse.
+descriptionType | string | Scope assets why attached shot description type.
+hasFailedJobs | boolean | Scope assets that are missing thumbnails or haven't had previews generated.
+production | <ID> | Scope assets by production ID.
+stock | boolean | Scope assets that belong to My Brand, or inverse.
+user | <ID> | Scope assets by user that created them.
+workspace | <ID> | Scope assets by workspace they belong to.
 
 ### Get a Specific Asset
 
