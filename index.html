@@ -211,36 +211,6 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>include</td>
-<td>no</td>
-<td>Embed a related resource.</td>
-</tr>
-<tr>
-<td>limit</td>
-<td>no</td>
-<td>Limit records returned in pagination.</td>
-</tr>
-<tr>
-<td>page</td>
-<td>no</td>
-<td>Offset to request from pagination.</td>
-</tr>
-<tr>
-<td>scope</td>
-<td>no</td>
-<td>Scope by user, workspace, etc.</td>
-</tr>
-<tr>
-<td>sort</td>
-<td>no</td>
-<td>Field to order records by.</td>
-</tr>
-<tr>
-<td>direction</td>
-<td>no</td>
-<td>Direction of sorting, <code class="prettyprint">asc</code> or <code class="prettyprint">desc</code>.</td>
-</tr>
-<tr>
 <td>workspace_id</td>
 <td>no</td>
 <td>For permissions, if action isn&rsquo;t performed by an admin and isn&rsquo;t set in URL.</td>
@@ -671,13 +641,153 @@ Assets should not need to be updated, these routes mostly exist in case there we
 
 <p><code class="prettyprint">DELETE https://api.candidio.com/v1/assets/&lt;ID&gt;</code></p>
 
-<p>To retrieve an asset for a specific workspace (Good for My Brand).</p>
+<p>Delete asset, scoped by workspace.</p>
 
 <p><code class="prettyprint">DELETE https://api.candidio.com/v1/workspaces/&lt;ID&gt;/assets/&lt;ID&gt;</code></p>
 
-<p>To retrieve an asset for a specific production.</p>
+<p>Delete asset, scoped by workspace and production.</p>
 
 <p><code class="prettyprint">DELETE https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/assets/&lt;ID&gt;</code></p>
+
+<h2 id="briefs">Briefs</h2>
+
+<h2 id="productions">Productions</h2>
+
+<h2 id="projects">Projects</h2>
+
+<h2 id="shots">Shots</h2>
+
+<h3 id="get-all-shots">Get All Shots</h3>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/descriptions?limit=100</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dsc_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"shot_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"broll"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"field1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This shot's description."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"field2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints return a collection of paginated shots.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Get shots scoped by workspace.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/descriptions</code></p>
+
+<p>Get shots scoped by workspace and production.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/descriptions</code></p>
+
+<p>Get shots for a public production while it remains in planning state. Authorization token is not required.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/descriptions/public</code></p>
+
+<h4 id="embeddable-relationships">Embeddable Relationships</h4>
+
+<table><thead>
+<tr>
+<th>Relationship</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>assets</td>
+<td>Collection of assets that belong to this shot description.</td>
+</tr>
+<tr>
+<td>production</td>
+<td>Production the shot belongs to.</td>
+</tr>
+</tbody></table>
+
+<h4 id="available-scopes">Available Scopes</h4>
+
+<table><thead>
+<tr>
+<th>Scope</th>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>asset</td>
+<td><ID></td>
+<td>Scopes shots by asset ID.</td>
+</tr>
+<tr>
+<td>production</td>
+<td><ID></td>
+<td>Scope shots by production they belong to.</td>
+</tr>
+<tr>
+<td>workspace</td>
+<td><ID></td>
+<td>Scope shots by workspace they belong to.</td>
+</tr>
+</tbody></table>
+
+<h3 id="get-a-specific-shot">Get a Specific Shot</h3>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/descriptions/dsc_hashhere</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dsc_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"shot_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"broll"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"field1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This shot's description."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"field2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints return a specific shot.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Get shot scoped by workspace.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/descriptions/&lt;ID&gt;</code></p>
+
+<p>Get shot scoped by workspace and production.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/descriptions/&lt;ID&gt;</code></p>
 
 <h4 id="query-parameters">Query Parameters</h4>
 
@@ -689,29 +799,194 @@ Assets should not need to be updated, these routes mostly exist in case there we
 </tr>
 </thead><tbody>
 <tr>
-<td>include</td>
-<td>no</td>
-<td>Embed a related resource.</td>
-</tr>
-<tr>
-<td>scope</td>
-<td>no</td>
-<td>Scope by user, workspace, etc.</td>
-</tr>
-<tr>
 <td>workspace_id</td>
 <td>no</td>
 <td>For permissions, if action isn&rsquo;t performed by an admin and isn&rsquo;t set in URL.</td>
 </tr>
 </tbody></table>
 
-<h2 id="briefs">Briefs</h2>
+<h3 id="create-shot">Create Shot</h3>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/descriptions</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
 
-<h2 id="productions">Productions</h2>
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"broll"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"field1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shot description."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"field2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<h2 id="projects">Projects</h2>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dsc_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"shot_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"broll"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"field1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This shot's description."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"field2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<h2 id="shots">Shots</h2>
+<p>These endpoints create shots.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Create shot that belongs to the workspace?? (this may be unecessary)</p>
+
+<p><code class="prettyprint">POST https://api.candidio.com/v1/workspaces/&lt;ID&gt;/descriptions</code></p>
+
+<p>Create shot that belongs to a production.</p>
+
+<p><code class="prettyprint">POST https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/descriptions</code></p>
+
+<h4 id="json-payload-parameters">JSON Payload Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>production_id</td>
+<td>yes*</td>
+<td>Defines production to assign shot to.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>yes</td>
+<td>Shot type. This may be depreciated.</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>yes</td>
+<td>Contains an array with field1, field2, and meta.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+* Required IDs are not required when they are already present in the URL.
+</aside>
+
+<h3 id="update-shot">Update Shot</h3>
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/descriptions/dsc_hashhere</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"broll"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"field1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shot description with more text."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"field2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dsc_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"shot_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"broll"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"field1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shot description with more text."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"field2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints create shots.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Update shot that belongs to the workspace?? (this may be unecessary)</p>
+
+<p><code class="prettyprint">PUT https://api.candidio.com/v1/workspaces/&lt;ID&gt;/descriptions/&lt;ID&gt;</code></p>
+
+<p>Update shot that belongs to a production.</p>
+
+<p><code class="prettyprint">PUT https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/descriptions/&lt;ID&gt;</code></p>
+
+<h4 id="json-payload-parameters">JSON Payload Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>position</td>
+<td>no</td>
+<td>Moves the shot&rsquo;s position within shotlist.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>yes</td>
+<td>Shot type. This may be depreciated.</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>yes</td>
+<td>Contains an array with field1, field2, and meta.</td>
+</tr>
+</tbody></table>
+
+<h3 id="delete-shot">Delete Shot</h3>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/descriptions/dsc_hashhere</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"http_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints delete a specific shot.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Delete a shot scoped by workspace.</p>
+
+<p><code class="prettyprint">DELETE https://api.candidio.com/v1/workspaces/&lt;ID&gt;/descriptions/&lt;ID&gt;</code></p>
+
+<p>Delete a shot scoped by workspace and production.</p>
+
+<p><code class="prettyprint">DELETE https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/descriptions/&lt;ID&gt;</code></p>
 
 <h2 id="workspaces">Workspaces</h2>
 
