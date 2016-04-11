@@ -651,6 +651,702 @@ Assets should not need to be updated, these routes mostly exist in case there we
 
 <h2 id="briefs">Briefs</h2>
 
+<h3 id="get-all-briefs">Get All Briefs</h3>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/briefs?limit=100</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"brief"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"brf_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"purpose"</span><span class="p">:</span><span class="w"> </span><span class="s2">"purpose description"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"purpose_because"</span><span class="p">:</span><span class="w"> </span><span class="s2">"purpose because desription"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"end_screen"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"instructions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"tone"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"brief"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"clean"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"clever"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"cool"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"emotional"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"fancy"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"fast"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"fresh"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"fun"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"funny"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"happy"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"inspiring"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"inviting"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"long"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"mysterious"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"powerful"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"serious"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"slow"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"thoughtProvoking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"music"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"musicType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"musicProvider"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"videoType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Other"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-08 09:08:25"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-08 09:08:25"</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint returns a collection of paginated briefs.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Briefs route to get paginated collection scoped by workspace and production.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/briefs</code></p>
+
+<h4 id="embeddable-relationships">Embeddable Relationships</h4>
+
+<table><thead>
+<tr>
+<th>Relationship</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>production</td>
+<td>Production the brief belongs to.</td>
+</tr>
+</tbody></table>
+
+<h4 id="available-scopes">Available Scopes</h4>
+
+<table><thead>
+<tr>
+<th>Scope</th>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user</td>
+<td><ID></td>
+<td>Scope assets by user that created them.</td>
+</tr>
+<tr>
+<td>workspace</td>
+<td><ID></td>
+<td>Scope assets by workspace they belong to.</td>
+</tr>
+</tbody></table>
+
+<h3 id="get-specific-brief">Get Specific Brief</h3>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/briefs/&lt;ID&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"brief"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"brf_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"purpose"</span><span class="p">:</span><span class="w"> </span><span class="s2">"purpose description"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"purpose_because"</span><span class="p">:</span><span class="w"> </span><span class="s2">"purpose because desription"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"end_screen"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"instructions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"tone"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"brief"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"clean"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"clever"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"cool"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"emotional"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"fancy"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"fast"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"fresh"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"fun"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"funny"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"happy"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"inspiring"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"inviting"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"long"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"mysterious"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"powerful"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"serious"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"slow"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"thoughtProvoking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"music"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"musicType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"musicProvider"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"videoType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Other"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-08 09:08:25"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-08 09:08:25"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint returns a collection of paginated briefs.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Retrieve a specific brief scoped by workspace and production.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/briefs/&lt;ID&gt;</code></p>
+
+<h4 id="embeddable-relationships">Embeddable Relationships</h4>
+
+<table><thead>
+<tr>
+<th>Relationship</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>production</td>
+<td>Production the brief belongs to.</td>
+</tr>
+</tbody></table>
+
+<h4 id="available-scopes">Available Scopes</h4>
+
+<table><thead>
+<tr>
+<th>Scope</th>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user</td>
+<td><ID></td>
+<td>Scope assets by user that created them.</td>
+</tr>
+<tr>
+<td>workspace</td>
+<td><ID></td>
+<td>Scope assets by workspace they belong to.</td>
+</tr>
+</tbody></table>
+
+<h3 id="create-brief">Create Brief</h3>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/briefs</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"brief"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"brf_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"purpose"</span><span class="p">:</span><span class="w"> </span><span class="s2">"purpose description"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"purpose_because"</span><span class="p">:</span><span class="w"> </span><span class="s2">"purpose because description"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"end_screen"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"instructions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"tone"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"brief"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"clean"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"clever"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"cool"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"emotional"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"fancy"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"fast"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"fresh"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"fun"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"funny"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"happy"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"inspiring"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"inviting"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"long"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"mysterious"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"powerful"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"serious"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"slow"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"thoughtProvoking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"music"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"musicType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"musicProvider"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"videoType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Other"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-08 09:08:25"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-08 09:08:25"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+
+<p>Create a brief.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Create a brief for a specific workspace and production.</p>
+
+<p><code class="prettyprint">POST https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/briefs</code></p>
+
+<h4 id="json-payload-parameters">JSON Payload Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>purpose</td>
+<td>no</td>
+<td>&ldquo;People who watch this video will&hellip;&rdquo;</td>
+</tr>
+<tr>
+<td>purpose_because</td>
+<td>no</td>
+<td>&ldquo;because I show and tell them&hellip;&rdquo;</td>
+</tr>
+<tr>
+<td>description</td>
+<td>no</td>
+<td>Brief description.</td>
+</tr>
+<tr>
+<td>end_screen</td>
+<td>no</td>
+<td>End screen instructions.</td>
+</tr>
+<tr>
+<td>instructions</td>
+<td>no</td>
+<td>Additional instructions.</td>
+</tr>
+<tr>
+<td>meta</td>
+<td>no</td>
+<td>Array of brief meta data.</td>
+</tr>
+<tr>
+<td>meta.length</td>
+<td>no</td>
+<td>Desired running time of final production.</td>
+</tr>
+<tr>
+<td>meta.tone</td>
+<td>no</td>
+<td>Array of tone options.</td>
+</tr>
+<tr>
+<td>meta.tone.action</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.brief</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.clean</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.clever</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.cool</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.emotional</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.fancy</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.fast</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.fresh</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.fun</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.funny</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.happy</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.inspiring</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.inviting</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.long</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.mysterious</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.powerful</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.serious</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.slow</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.thoughtProvoking</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.videoType</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.musicProvider</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.musicType</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.music</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+</tbody></table>
+
+<h3 id="update-brief">Update Brief</h3>
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/briefs/&lt;ID&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"brief"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"brf_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"purpose"</span><span class="p">:</span><span class="w"> </span><span class="s2">"purpose description updated"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"purpose_because"</span><span class="p">:</span><span class="w"> </span><span class="s2">"purpose because description"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"end_screen"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"instructions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"tone"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"brief"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"clean"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"clever"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"cool"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"emotional"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"fancy"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"fast"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"fresh"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"fun"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"funny"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"happy"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"inspiring"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"inviting"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"long"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"mysterious"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"powerful"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"serious"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"slow"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"thoughtProvoking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"music"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"musicType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"musicProvider"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"videoType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Other"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-08 09:08:25"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-08 09:08:25"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+
+<p>Update a brief.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Update a brief for a specific workspace and production.</p>
+
+<p><code class="prettyprint">PUT https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/briefs/&lt;ID&gt;</code></p>
+
+<h4 id="json-payload-parameters">JSON Payload Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>purpose</td>
+<td>no</td>
+<td>&ldquo;People who watch this video will&hellip;&rdquo;</td>
+</tr>
+<tr>
+<td>purpose_because</td>
+<td>no</td>
+<td>&ldquo;because I show and tell them&hellip;&rdquo;</td>
+</tr>
+<tr>
+<td>description</td>
+<td>no</td>
+<td>Brief description.</td>
+</tr>
+<tr>
+<td>end_screen</td>
+<td>no</td>
+<td>End screen instructions.</td>
+</tr>
+<tr>
+<td>instructions</td>
+<td>no</td>
+<td>Additional instructions.</td>
+</tr>
+<tr>
+<td>meta</td>
+<td>no</td>
+<td>Array of brief meta data.</td>
+</tr>
+<tr>
+<td>meta.length</td>
+<td>no</td>
+<td>Desired running time of final production.</td>
+</tr>
+<tr>
+<td>meta.tone</td>
+<td>no</td>
+<td>Array of tone options.</td>
+</tr>
+<tr>
+<td>meta.tone.action</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.brief</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.clean</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.clever</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.cool</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.emotional</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.fancy</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.fast</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.fresh</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.fun</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.funny</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.happy</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.inspiring</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.inviting</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.long</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.mysterious</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.powerful</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.serious</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.slow</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.tone.thoughtProvoking</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.videoType</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.musicProvider</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.musicType</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>meta.music</td>
+<td>no</td>
+<td>&hellip;</td>
+</tr>
+</tbody></table>
+
+<h3 id="delete-brief">Delete Brief</h3>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/briefs/&lt;ID&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"http_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Delete a brief.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Delete a brief, scoped by workspace and production.</p>
+
+<p><code class="prettyprint">DELETE https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/briefs/&lt;ID&gt;</code></p>
+
 <h2 id="productions">Productions</h2>
 
 <h2 id="projects">Projects</h2>
@@ -875,13 +1571,34 @@ Assets should not need to be updated, these routes mostly exist in case there we
 <tr>
 <td>fields</td>
 <td>yes</td>
-<td>Contains an array with field1, field2, and meta.</td>
+<td>Array blob of field options.</td>
+</tr>
+<tr>
+<td>fields.field1</td>
+<td>sometimes</td>
+<td>String, purpose depends.</td>
+</tr>
+<tr>
+<td>fields.field2</td>
+<td>sometimes</td>
+<td>String, purpose depends.</td>
+</tr>
+<tr>
+<td>fields.meta</td>
+<td>sometimes</td>
+<td>String, purpose depends.</td>
+</tr>
+<tr>
+<td>fields.meta.name</td>
+<td>sometimes</td>
+<td>String for lower third name.</td>
+</tr>
+<tr>
+<td>fields.meta.title</td>
+<td>sometimes</td>
+<td>String for lower third title.</td>
 </tr>
 </tbody></table>
-
-<aside class="success">
-* Required IDs are not required when they are already present in the URL.
-</aside>
 
 <h3 id="update-shot">Update Shot</h3>
 <pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/descriptions/dsc_hashhere</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -954,7 +1671,32 @@ Assets should not need to be updated, these routes mostly exist in case there we
 <tr>
 <td>fields</td>
 <td>yes</td>
-<td>Contains an array with field1, field2, and meta.</td>
+<td>Array blob of field options.</td>
+</tr>
+<tr>
+<td>fields.field1</td>
+<td>sometimes</td>
+<td>String, purpose depends.</td>
+</tr>
+<tr>
+<td>fields.field2</td>
+<td>sometimes</td>
+<td>String, purpose depends.</td>
+</tr>
+<tr>
+<td>fields.meta</td>
+<td>sometimes</td>
+<td>String, purpose depends.</td>
+</tr>
+<tr>
+<td>fields.meta.name</td>
+<td>sometimes</td>
+<td>String for lower third name.</td>
+</tr>
+<tr>
+<td>fields.meta.title</td>
+<td>sometimes</td>
+<td>String for lower third title.</td>
 </tr>
 </tbody></table>
 
@@ -987,6 +1729,58 @@ Assets should not need to be updated, these routes mostly exist in case there we
 <p>Delete a shot scoped by workspace and production.</p>
 
 <p><code class="prettyprint">DELETE https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/descriptions/&lt;ID&gt;</code></p>
+
+<h3 id="attach-shot-to-asset">Attach Shot to Asset</h3>
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/assets/&lt;ID&gt;/descriptions/&lt;ID&gt;/detach</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"http_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Attach shot description to asset.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Attach shot description to asset, scoped by workspace.</p>
+
+<p><code class="prettyprint">PUT https://api.candidio.com/v1/workspaces/&lt;ID&gt;/assets/&lt;ID&gt;/descriptions/&lt;ID&gt;/detach</code></p>
+
+<h3 id="detach-shot-from-asset">Detach Shot from Asset</h3>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/assets/&lt;ID&gt;/descriptions/&lt;ID&gt;/detach</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"http_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Detach shot description from asset.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Detach shot description from asset, scoped by workspace.</p>
+
+<p><code class="prettyprint">DELETE https://api.candidio.com/v1/workspaces/&lt;ID&gt;/assets/&lt;ID&gt;/descriptions/&lt;ID&gt;/detach</code></p>
 
 <h2 id="workspaces">Workspaces</h2>
 
