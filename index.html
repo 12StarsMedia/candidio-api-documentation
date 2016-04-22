@@ -1349,6 +1349,523 @@ Assets should not need to be updated, these routes mostly exist in case there we
 
 <h2 id="productions">Productions</h2>
 
+<h3 id="get-all-productions">Get All Productions</h3>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/productions?limit=100</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"production"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prd_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Title of Production"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Planning"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status_queued"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"allow_public_upload"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"allow_public_shotlist"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"goal_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-16 00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_submitted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_submitted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-08 09:08:25"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-08 09:08:25"</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint returns a collection of paginated productions.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Productions route with no scopes, good for admin operations.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/productions</code></p>
+
+<p>Productions route to get paginated collection scoped by workspace.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions</code></p>
+
+<p>Productions route to get paginated collection scoped by workspace and user.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/users/&lt;ID&gt;/productions</code></p>
+
+<p>Productions route to get paginated collection scoped by workspace and project.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/projects/&lt;ID&gt;/productions</code></p>
+
+<h4 id="embeddable-relationships">Embeddable Relationships</h4>
+
+<table><thead>
+<tr>
+<th>Relationship</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>brief</td>
+<td>Latest brief created for a production.</td>
+</tr>
+<tr>
+<td>owner</td>
+<td>Person who created a production.</td>
+</tr>
+<tr>
+<td>project</td>
+<td>Project production belongs to, if any.</td>
+</tr>
+<tr>
+<td>template</td>
+<td>Template production was created from, if any.</td>
+</tr>
+<tr>
+<td>workspace</td>
+<td>Workspace a production belongs to.</td>
+</tr>
+<tr>
+<td>assets</td>
+<td>Assets attached to a production.</td>
+</tr>
+<tr>
+<td>briefs</td>
+<td>All briefs attached to a production.</td>
+</tr>
+<tr>
+<td>descriptions</td>
+<td>Shot descriptions attached to a production.</td>
+</tr>
+<tr>
+<td>sharing_users</td>
+<td>Users a production has been shared with.</td>
+</tr>
+<tr>
+<td>snapshots</td>
+<td>Production snapshots captured between status changes.</td>
+</tr>
+</tbody></table>
+
+<h4 id="available-scopes">Available Scopes</h4>
+
+<table><thead>
+<tr>
+<th>Scope</th>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>allowsPublicUpload</td>
+<td>boolean</td>
+<td>Scope by whether a production allows public upload.</td>
+</tr>
+<tr>
+<td>asset</td>
+<td><ID></td>
+<td>Scope productions by asset.</td>
+</tr>
+<tr>
+<td>project</td>
+<td><ID></td>
+<td>Scope productions by project.</td>
+</tr>
+<tr>
+<td>projectNull</td>
+<td>boolean</td>
+<td>Scope by project null or not null.</td>
+</tr>
+<tr>
+<td>projectUser</td>
+<td><ID></td>
+<td>Scope productions by user with permission to see parent project.</td>
+</tr>
+<tr>
+<td>user</td>
+<td><ID></td>
+<td>Scope productions by user that created them.</td>
+</tr>
+<tr>
+<td>workspace</td>
+<td><ID></td>
+<td>Scope productions by workspace they belong to.</td>
+</tr>
+</tbody></table>
+
+<h3 id="get-specific-production">Get Specific Production</h3>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"production"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prd_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Title of Production"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Planning"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status_queued"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"allow_public_upload"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"allow_public_shotlist"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"goal_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-16 00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_submitted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_submitted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-08 09:08:25"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-08 09:08:25"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint returns a collection of paginated productions.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Route to get specific production with no scopes.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/productions/&lt;ID&gt;</code></p>
+
+<p>Route to get specific production scoped by workspace.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;</code></p>
+
+<p>Route to get specific production scoped by workspace and user.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/users/&lt;ID&gt;/productions/&lt;ID&gt;</code></p>
+
+<p>Route to get specific production scoped by workspace and project.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/projects/&lt;ID&gt;/productions/&lt;ID&gt;</code></p>
+
+<h4 id="embeddable-relationships">Embeddable Relationships</h4>
+
+<table><thead>
+<tr>
+<th>Relationship</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>brief</td>
+<td>Latest brief created for a production.</td>
+</tr>
+<tr>
+<td>owner</td>
+<td>Person who created a production.</td>
+</tr>
+<tr>
+<td>project</td>
+<td>Project production belongs to, if any.</td>
+</tr>
+<tr>
+<td>template</td>
+<td>Template production was created from, if any.</td>
+</tr>
+<tr>
+<td>workspace</td>
+<td>Workspace a production belongs to.</td>
+</tr>
+<tr>
+<td>assets</td>
+<td>Assets attached to a production.</td>
+</tr>
+<tr>
+<td>briefs</td>
+<td>All briefs attached to a production.</td>
+</tr>
+<tr>
+<td>descriptions</td>
+<td>Shot descriptions attached to a production.</td>
+</tr>
+<tr>
+<td>sharing_users</td>
+<td>Users a production has been shared with.</td>
+</tr>
+<tr>
+<td>snapshots</td>
+<td>Production snapshots captured between status changes.</td>
+</tr>
+</tbody></table>
+
+<h4 id="available-scopes">Available Scopes</h4>
+
+<table><thead>
+<tr>
+<th>Scope</th>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>allowsPublicUpload</td>
+<td>boolean</td>
+<td>Scope by whether a production allows public upload.</td>
+</tr>
+<tr>
+<td>asset</td>
+<td><ID></td>
+<td>Scope productions by asset.</td>
+</tr>
+<tr>
+<td>project</td>
+<td><ID></td>
+<td>Scope productions by project.</td>
+</tr>
+<tr>
+<td>projectNull</td>
+<td>boolean</td>
+<td>Scope by project null or not null.</td>
+</tr>
+<tr>
+<td>projectUser</td>
+<td><ID></td>
+<td>Scope productions by user with permission to see parent project.</td>
+</tr>
+<tr>
+<td>user</td>
+<td><ID></td>
+<td>Scope productions by user that created them.</td>
+</tr>
+<tr>
+<td>workspace</td>
+<td><ID></td>
+<td>Scope productions by workspace they belong to.</td>
+</tr>
+</tbody></table>
+
+<h3 id="create-production">Create Production</h3>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/productions</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"production"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prd_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Title of Production"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Planning"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status_queued"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"allow_public_upload"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"allow_public_shotlist"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"goal_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-16 00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_submitted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_submitted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-08 09:08:25"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-08 09:08:25"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+
+<p>Create a production.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Route to create production.</p>
+
+<p><code class="prettyprint">POST https://api.candidio.com/v1/productions</code></p>
+
+<p>Route to create a production for a specific workspace.</p>
+
+<p><code class="prettyprint">POST https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions</code></p>
+
+<p>Route to create a production for a specific workspace and project.</p>
+
+<p><code class="prettyprint">POST https://api.candidio.com/v1/workspaces/&lt;ID&gt;/projects/&lt;ID&gt;/productions</code></p>
+
+<h4 id="json-payload-parameters">JSON Payload Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>allow_public_upload</td>
+<td>sometimes</td>
+<td>Boolean, allows public uploads.</td>
+</tr>
+<tr>
+<td>allow_public_shotlist</td>
+<td>sometimes</td>
+<td>Boolean, allows public shotlist.</td>
+</tr>
+<tr>
+<td>goal_date</td>
+<td>sometimes</td>
+<td>Production goal date in <code class="prettyprint">Y-m-d H:i:s</code> format.</td>
+</tr>
+<tr>
+<td>production_id</td>
+<td>sometimes</td>
+<td>Production to clone from.</td>
+</tr>
+<tr>
+<td>project_id</td>
+<td>sometimes</td>
+<td>Project to attach production to.</td>
+</tr>
+<tr>
+<td>status</td>
+<td>sometimes</td>
+<td>Default &ldquo;planning&rdquo;. Only administrators can create a production with a specific status.</td>
+</tr>
+<tr>
+<td>template_id</td>
+<td>sometimes</td>
+<td>Template to create from.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>yes*</td>
+<td>Title for production, if not being created from template or cloned.</td>
+</tr>
+</tbody></table>
+
+<h3 id="update-production">Update Production</h3>
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"production"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prd_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Title of Production"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Planning"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status_queued"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"allow_public_upload"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"allow_public_shotlist"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"goal_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-16 00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_submitted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_submitted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-08 09:08:25"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-08 09:08:25"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+
+<p>Update a production.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Route to update a production.</p>
+
+<p><code class="prettyprint">PUT https://api.candidio.com/v1/productions/&lt;ID&gt;</code></p>
+
+<p>Route to update a production belonging to a specific workspace.</p>
+
+<p><code class="prettyprint">PUT https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;</code></p>
+
+<p>Route to update a production belonging to a specific workspace and project.</p>
+
+<p><code class="prettyprint">PUT https://api.candidio.com/v1/workspaces/&lt;ID&gt;/projects/&lt;ID&gt;/productions/&lt;ID&gt;</code></p>
+
+<h4 id="json-payload-parameters">JSON Payload Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>allow_public_upload</td>
+<td>sometimes</td>
+<td>Boolean, allows public uploads.</td>
+</tr>
+<tr>
+<td>allow_public_shotlist</td>
+<td>sometimes</td>
+<td>Boolean, allows public shotlist.</td>
+</tr>
+<tr>
+<td>goal_date</td>
+<td>sometimes</td>
+<td>Production goal date in <code class="prettyprint">Y-m-d H:i:s</code> format.</td>
+</tr>
+<tr>
+<td>is_queued</td>
+<td>sometimes</td>
+<td>Boolean, queues production when true.</td>
+</tr>
+<tr>
+<td>project_id</td>
+<td>sometimes</td>
+<td>Project to attach production to.</td>
+</tr>
+<tr>
+<td>status</td>
+<td>sometimes</td>
+<td>Default &ldquo;planning&rdquo;. Only administrators can create a production with a specific status.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>yes*</td>
+<td>Title for production, if not being created from template or cloned.</td>
+</tr>
+</tbody></table>
+
+<h3 id="delete-production">Delete Production</h3>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"http_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Delete a production.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Route to delete a production.</p>
+
+<p><code class="prettyprint">DELETE https://api.candidio.com/v1/productions/&lt;ID&gt;</code></p>
+
+<p>Route to delete a production belonging to a specific workspace.</p>
+
+<p><code class="prettyprint">DELETE https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;</code></p>
+
+<p>Route to delete a production belonging to a specific workspace and project.</p>
+
+<p><code class="prettyprint">DELETE https://api.candidio.com/v1/workspaces/&lt;ID&gt;/projects/&lt;ID&gt;/productions/&lt;ID&gt;</code></p>
+
 <h2 id="projects">Projects</h2>
 
 <h2 id="shots">Shots</h2>
