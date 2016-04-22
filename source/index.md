@@ -155,10 +155,10 @@ assetType | audio,image,video,other | Scopes assets by mimetype with fallback on
 completed | boolean | Scope assets that are completed productions, or inverse.
 descriptionType | string | Scope assets why attached shot description type.
 hasFailedJobs | boolean | Scope assets that are missing thumbnails or haven't had previews generated.
-production | <ID> | Scope assets by production ID.
+production | ID | Scope assets by production ID.
 stock | boolean | Scope assets that belong to My Brand, or inverse.
-user | <ID> | Scope assets by user that created them.
-workspace | <ID> | Scope assets by workspace they belong to.
+user | ID | Scope assets by user that created them.
+workspace | ID | Scope assets by workspace they belong to.
 
 ### Get a Specific Asset
 
@@ -507,8 +507,8 @@ production | Production the brief belongs to.
 
 Scope | Argument | Description
 ----- | -------- | -----------
-user | <ID> | Scope assets by user that created them.
-workspace | <ID> | Scope assets by workspace they belong to.
+user | ID | Scope assets by user that created them.
+workspace | ID | Scope assets by workspace they belong to.
 
 ### Get Specific Brief
 
@@ -584,8 +584,8 @@ production | Production the brief belongs to.
 
 Scope | Argument | Description
 ----- | -------- | -----------
-user | <ID> | Scope assets by user that created them.
-workspace | <ID> | Scope assets by workspace they belong to.
+user | ID | Scope assets by user that created them.
+workspace | ID | Scope assets by workspace they belong to.
 
 ### Create Brief
 
@@ -899,12 +899,12 @@ snapshots | Production snapshots captured between status changes.
 Scope | Argument | Description
 ----- | -------- | -----------
 allowsPublicUpload | boolean | Scope by whether a production allows public upload.
-asset | <ID> | Scope productions by asset.
-project | <ID> | Scope productions by project.
+asset | ID | Scope productions by asset.
+project | ID | Scope productions by project.
 projectNull | boolean | Scope by project null or not null.
-projectUser | <ID> | Scope productions by user with permission to see parent project.
-user | <ID> | Scope productions by user that created them.
-workspace | <ID> | Scope productions by workspace they belong to.
+projectUser | ID | Scope productions by user with permission to see parent project.
+user | ID | Scope productions by user that created them.
+workspace | ID | Scope productions by workspace they belong to.
 
 ### Get Specific Production
 
@@ -976,12 +976,12 @@ snapshots | Production snapshots captured between status changes.
 Scope | Argument | Description
 ----- | -------- | -----------
 allowsPublicUpload | boolean | Scope by whether a production allows public upload.
-asset | <ID> | Scope productions by asset.
-project | <ID> | Scope productions by project.
+asset | ID | Scope productions by asset.
+project | ID | Scope productions by project.
 projectNull | boolean | Scope by project null or not null.
-projectUser | <ID> | Scope productions by user with permission to see parent project.
-user | <ID> | Scope productions by user that created them.
-workspace | <ID> | Scope productions by workspace they belong to.
+projectUser | ID | Scope productions by user with permission to see parent project.
+user | ID | Scope productions by user that created them.
+workspace | ID | Scope productions by workspace they belong to.
 
 ### Create Production
 
@@ -1206,9 +1206,9 @@ production | Production the shot belongs to.
 
 Scope | Argument | Description
 ----- | -------- | -----------
-asset | <ID> | Scopes shots by asset ID.
-production | <ID> | Scope shots by production they belong to.
-workspace | <ID> | Scope shots by workspace they belong to.
+asset | ID | Scopes shots by asset ID.
+production | ID | Scope shots by production they belong to.
+workspace | ID | Scope shots by workspace they belong to.
 
 ### Get a Specific Shot
 
