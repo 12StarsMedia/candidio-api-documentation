@@ -17,11 +17,7 @@ search: true
 
 ## Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
-
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](http://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Welcome to the Candidio API documentation.
 
 # Topics
 
@@ -1665,7 +1661,7 @@ Delete a shot scoped by workspace and production.
 ### Attach Shot to Asset
 
 ```http
-PUT /v1/workspaces/<ID>/assets/<ID>/descriptions/<ID>/detach HTTP/1.1
+PUT /v1/workspaces/<ID>/assets/<ID>/descriptions/<ID>/attach HTTP/1.1
 Host: api.candidio.com
 Content-Type: application/json
 Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
@@ -1688,7 +1684,7 @@ Attach shot description to asset.
 
 Attach shot description to asset, scoped by workspace.
 
-`PUT https://api.candidio.com/v1/workspaces/<ID>/assets/<ID>/descriptions/<ID>/detach`
+`PUT https://api.candidio.com/v1/workspaces/<ID>/assets/<ID>/descriptions/<ID>/attach`
 
 ### Detach Shot from Asset
 
