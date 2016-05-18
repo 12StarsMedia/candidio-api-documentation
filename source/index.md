@@ -67,7 +67,7 @@ direction | Direction of sorting, `asc` or `desc`.
 
 ## Assets
 
-### Get All Assets
+### List Assets
 
 ```http
 GET /v1/assets?limit=100 HTTP/1.1
@@ -419,7 +419,7 @@ Delete asset, scoped by workspace and production.
 
 ## Briefs
 
-### Get All Briefs
+### List Briefs
 
 ```http
 GET /v1/workspaces/<ID>/productions/<ID>/briefs?limit=100 HTTP/1.1
@@ -506,7 +506,7 @@ Scope | Argument | Description
 user | ID | Scope assets by user that created them.
 workspace | ID | Scope assets by workspace they belong to.
 
-### Get Specific Brief
+### Get Brief
 
 ```http
 GET /v1/workspaces/<ID>/productions/<ID>/briefs/<ID> HTTP/1.1
@@ -815,7 +815,7 @@ Delete a brief, scoped by workspace and production.
 
 ## Productions
 
-### Get All Productions
+### List Productions
 
 ```http
 GET /v1/workspaces/<ID>/productions?limit=100 HTTP/1.1
@@ -902,7 +902,7 @@ projectUser | ID | Scope productions by user with permission to see parent proje
 user | ID | Scope productions by user that created them.
 workspace | ID | Scope productions by workspace they belong to.
 
-### Get Specific Production
+### Get Production
 
 ```http
 GET /v1/workspaces/<ID>/productions/<ID> HTTP/1.1
@@ -1136,7 +1136,7 @@ Route to delete a production belonging to a specific workspace and project.
 
 ## Projects
 
-### Get All Projects
+### List Projects
 
 ```http
 GET /v1/projects?limit=100 HTTP/1.1
@@ -1304,7 +1304,7 @@ internal_notes | no | Internal notes, for administrators only.
 ### Update Project
 
 ```http
-POST /v1/workspaces/<ID>/projects/<ID> HTTP/1.1
+PUT /v1/workspaces/<ID>/projects/<ID> HTTP/1.1
 Host: api.candidio.com
 Content-Type: application/json
 Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
@@ -1338,11 +1338,11 @@ These endpoints update projects.
 
 Update project.
 
-`POST https://api.candidio.com/v1/projects/<ID>`
+`PUT https://api.candidio.com/v1/projects/<ID>`
 
 Update project scoped by workspace.
 
-`POST https://api.candidio.com/v1/workspaces/<ID>/projects/<ID>`
+`PUT https://api.candidio.com/v1/workspaces/<ID>/projects/<ID>`
 
 #### JSON Payload Parameters
 
@@ -1384,9 +1384,211 @@ Delete a project scoped by workspace.
 
 `DELETE https://api.candidio.com/v1/workspaces/<ID>/projects/<ID>`
 
+
+## Revisions
+
+### List Revisions
+```http
+GET /v1/workspaces/<ID>/productions/<ID>/revisions HTTP/1.1
+Host: api.candidio.com
+Content-Type: application/json
+Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+	"data": [{
+    "type": "revision",
+		"id": "rvs_hashhere",
+		"instructions": "Some instructions for this revision",
+		"is_open": true,
+    "created_at": "2016-04-04 07:28:30",
+    "updated_at": "2016-04-04 07:28:30"
+	}],
+  "meta": {
+		"pagination": {
+			"total": 4,
+			"count": 4,
+			"per_page": 100,
+			"current_page": 1,
+			"total_pages": 1,
+			"links": []
+		}
+	}
+}
+```
+
+This endpoint a collection of paginated revisions.
+
+#### HTTP Request
+
+Get revisions scoped by workspace and production.
+
+`GET https://api.candidio.com/v1/workspaces/<ID>/productions/<ID>/revisions`
+
+#### Embeddable Relationships
+
+Relationship | Description
+------------ | -----------
+owner | User who created a revision.
+production | Productions a revision belongs to.
+workspace | Workspace a revision belongs to.
+assets | Assets that belong to a revision.
+
+#### Available Scopes
+
+Scope | Argument | Description
+----- | -------- | -----------
+production | ID | Scope revisions by production they belong to.
+user | ID | Scope revisions by user who created them.
+workspace | ID | Scope revisions by workspace they belong to.
+
+### Get Revision
+
+```http
+GET /v1/workspaces/<ID>/productions/<ID>/revisions/<ID> HTTP/1.1
+Host: api.candidio.com
+Content-Type: application/json
+Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+	"data": {
+    "type": "revision",
+		"id": "rvs_hashhere",
+		"instructions": "Some instructions for this revision",
+		"is_open": true,
+    "created_at": "2016-04-04 07:28:30",
+    "updated_at": "2016-04-04 07:28:30"
+	}
+}
+```
+
+This endpoint returns a specific revision.
+
+#### HTTP Request
+
+Get revision scoped by workspace and production.
+
+`GET https://api.candidio.com/v1/workspaces/<ID>/productions/<ID>/revisions/<ID>`
+
+#### Embeddable Relationships
+
+Relationship | Description
+------------ | -----------
+owner | User who created a revision.
+production | Productions a revision belongs to.
+workspace | Workspace a revision belongs to.
+assets | Assets that belong to a revision.
+
+#### Available Scopes
+
+Scope | Argument | Description
+----- | -------- | -----------
+production | ID | Scope revisions by production they belong to.
+user | ID | Scope revisions by user who created them.
+workspace | ID | Scope revisions by workspace they belong to.
+
+### Create Revision
+
+```http
+POST /v1/workspaces/<ID>/productions/<ID>/revisions HTTP/1.1
+Host: api.candidio.com
+Content-Type: application/json
+Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
+
+{
+  "data": {
+  		"instructions": "Some instructions for this revision."
+    }
+  }
+}
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+	"data": {
+    "type": "revision",
+		"id": "rvs_hashhere",
+		"instructions": "Some instructions for this revision.",
+		"is_open": true,
+    "created_at": "2016-04-04 07:28:30",
+    "updated_at": "2016-04-04 07:28:30"
+	}
+}
+```
+
+This endpoint creates a revision.
+
+#### HTTP Request
+
+Create a production revision.
+
+`POST https://api.candidio.com/v1/workspaces/<ID>/productions/<ID>/revisions/<ID>`
+
+#### JSON Payload Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+instructions | no | Revision instruction.
+
+
+### Update Revision
+
+```http
+PUT /v1/workspaces/<ID>/productions/<ID>/revisions/<ID> HTTP/1.1
+Host: api.candidio.com
+Content-Type: application/json
+Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
+
+{
+  "data": {
+  		"instructions": "Updated instructions for this revision."
+    }
+  }
+}
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+	"data": {
+    "type": "revision",
+		"id": "rvs_hashhere",
+		"instructions": "Updated instructions for this revision.",
+		"is_open": true,
+    "created_at": "2016-04-04 07:28:30",
+    "updated_at": "2016-04-04 07:52:41"
+	}
+}
+```
+
+This endpoint updates a revision.
+
+#### HTTP Request
+
+Update revision.
+
+`PUT https://api.candidio.com/v1/workspaces/<ID>/productions/<ID>/revisions/<ID>`
+
+#### JSON Payload Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+instructions | no | Revision instruction.
+
+
 ## Shots
 
-### Get All Shots
+### List Shots
 
 ```http
 GET /v1/workspaces/<ID>/descriptions?limit=100 HTTP/1.1
@@ -1716,7 +1918,7 @@ Detach shot description from asset, scoped by workspace.
 
 ## Workspaces
 
-### Get All Workspaces
+### List Workspaces
 
 ```http
 GET /v1/workspaces?limit=100 HTTP/1.1
