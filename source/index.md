@@ -2,7 +2,8 @@
 title: Candidio API Reference
 
 language_tabs:
-  - http
+  - http: Request
+  - json: Response
 
 toc_footers:
   - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
