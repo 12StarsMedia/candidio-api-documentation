@@ -102,7 +102,6 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
   "data": {
     "name": "Industry Name",
     "description": "Industry description."
-    }
   }
 }
 ```
@@ -151,7 +150,6 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
   "data": {
   		"description": "Updated industry description.",
       "is_published": true
-    }
   }
 }
 ```

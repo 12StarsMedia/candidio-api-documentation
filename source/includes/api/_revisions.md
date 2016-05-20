@@ -118,7 +118,6 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 {
   "data": {
   		"instructions": "Some instructions for this revision."
-    }
   }
 }
 ```
@@ -164,7 +163,6 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 {
   "data": {
   		"instructions": "Updated instructions for this revision."
-    }
   }
 }
 ```

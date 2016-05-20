@@ -171,6 +171,13 @@ POST /v1/workspaces/<ID>/productions HTTP/1.1
 Host: api.candidio.com
 Content-Type: application/json
 Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
+
+{
+  "data": {
+		"title": "Title of Production",
+		"goal_date": "2016-04-16 00:00:00"
+  }
+}
 ```
 
 > The above command returns JSON structured like this:

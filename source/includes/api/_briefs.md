@@ -171,6 +171,13 @@ POST /v1/workspaces/<ID>/productions/<ID>/briefs HTTP/1.1
 Host: api.candidio.com
 Content-Type: application/json
 Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
+
+{
+  "data": {
+		"purpose": "purpose description",
+		"purpose_because": "purpose because description"
+  }
+}
 ```
 
 > The above command returns JSON structured like this:
@@ -272,6 +279,12 @@ PUT /v1/workspaces/<ID>/productions/<ID>/briefs/<ID> HTTP/1.1
 Host: api.candidio.com
 Content-Type: application/json
 Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
+
+{
+  "data": {
+		"purpose": "purpose description updated"
+  }
+}
 ```
 
 > The above command returns JSON structured like this:

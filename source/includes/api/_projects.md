@@ -125,7 +125,6 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 {
   "data": {
   		"name": "Project Name"
-    }
   }
 }
 ```
@@ -176,7 +175,6 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 {
   "data": {
   		"name": "Project Name Updated"
-    }
   }
 }
 ```
