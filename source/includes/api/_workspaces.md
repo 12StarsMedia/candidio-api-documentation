@@ -9,7 +9,7 @@ Content-Type: application/json
 Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 ```
 
-> The above command returns JSON structured like this:
+
 
 ```json
 {
@@ -96,7 +96,7 @@ Content-Type: application/json
 Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 ```
 
-> The above command returns JSON structured like this:
+
 
 ```json
 {
@@ -181,7 +181,7 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 }
 ```
 
-> The above command returns JSON structured like this:
+
 
 ```json
 {
@@ -250,7 +250,7 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 }
 ```
 
-> The above command returns JSON structured like this:
+
 
 ```json
 {
@@ -325,7 +325,7 @@ Content-Type: application/json
 Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 ```
 
-> The above command returns JSON structured like this:
+
 
 ```json
 {

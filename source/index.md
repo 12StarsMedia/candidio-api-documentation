@@ -16,6 +16,7 @@ includes:
   - api/projects
   - api/revisions
   - api/shots
+  - api/users
   - api/workspaces
   - api/tail
   - errors
