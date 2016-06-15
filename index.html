@@ -1615,7 +1615,7 @@ Assets should not need to be updated, these routes mostly exist in case there we
 
 <p>Productions route to get paginated collection scoped by workspace and project.</p>
 
-<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/projects/&lt;ID&gt;/productions</code></p>
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/video-series/&lt;ID&gt;/productions</code></p>
 
 <h4 id="embeddable-relationships">Embeddable Relationships</h4>
 
@@ -1755,7 +1755,7 @@ Assets should not need to be updated, these routes mostly exist in case there we
 
 <p>Route to get specific production scoped by workspace and project.</p>
 
-<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/projects/&lt;ID&gt;/productions/&lt;ID&gt;</code></p>
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/video-series/&lt;ID&gt;/productions/&lt;ID&gt;</code></p>
 
 <h4 id="embeddable-relationships">Embeddable Relationships</h4>
 
@@ -1898,7 +1898,7 @@ Assets should not need to be updated, these routes mostly exist in case there we
 
 <p>Route to create a production for a specific workspace and project.</p>
 
-<p><code class="prettyprint">POST https://api.candidio.com/v1/workspaces/&lt;ID&gt;/projects/&lt;ID&gt;/productions</code></p>
+<p><code class="prettyprint">POST https://api.candidio.com/v1/workspaces/&lt;ID&gt;/video-series/&lt;ID&gt;/productions</code></p>
 
 <h4 id="json-payload-parameters">JSON Payload Parameters</h4>
 
@@ -1989,7 +1989,7 @@ Assets should not need to be updated, these routes mostly exist in case there we
 
 <p>Route to update a production belonging to a specific workspace and project.</p>
 
-<p><code class="prettyprint">PUT https://api.candidio.com/v1/workspaces/&lt;ID&gt;/projects/&lt;ID&gt;/productions/&lt;ID&gt;</code></p>
+<p><code class="prettyprint">PUT https://api.candidio.com/v1/workspaces/&lt;ID&gt;/video-series/&lt;ID&gt;/productions/&lt;ID&gt;</code></p>
 
 <h4 id="json-payload-parameters">JSON Payload Parameters</h4>
 
@@ -2065,7 +2065,7 @@ Assets should not need to be updated, these routes mostly exist in case there we
 
 <p>Route to delete a production belonging to a specific workspace and project.</p>
 
-<p><code class="prettyprint">DELETE https://api.candidio.com/v1/workspaces/&lt;ID&gt;/projects/&lt;ID&gt;/productions/&lt;ID&gt;</code></p>
+<p><code class="prettyprint">DELETE https://api.candidio.com/v1/workspaces/&lt;ID&gt;/video-series/&lt;ID&gt;/productions/&lt;ID&gt;</code></p>
 
           <h2 id="revisions">Revisions</h2>
 
@@ -2821,7 +2821,7 @@ Assets should not need to be updated, these routes mostly exist in case there we
 
 <p>Get users scoped by workspace and project.</p>
 
-<p><code class="prettyprint">GET https://api.candidio.com/v1/workspace/&lt;ID&gt;/projects/&lt;ID&gt;/users</code></p>
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspace/&lt;ID&gt;/video-series/&lt;ID&gt;/users</code></p>
 
 <h4 id="embeddable-relationships">Embeddable Relationships</h4>
 
@@ -2844,12 +2844,12 @@ Assets should not need to be updated, these routes mostly exist in case there we
 <td>Productions shared with a user.</td>
 </tr>
 <tr>
-<td>owned_projects</td>
-<td>Projects the user created.</td>
+<td>owned_video_series</td>
+<td>Video Series the user created.</td>
 </tr>
 <tr>
-<td>shared_projects</td>
-<td>Projects shared with the user.</td>
+<td>shared_video_series</td>
+<td>Video Series shared with the user.</td>
 </tr>
 </tbody></table>
 
@@ -2954,7 +2954,7 @@ Assets should not need to be updated, these routes mostly exist in case there we
 
 <p>Get user scoped by workspace and project.</p>
 
-<p><code class="prettyprint">GET https://api.candidio.com/v1/workspace/&lt;ID&gt;/projects/&lt;ID&gt;/users/&lt;ID&gt;</code></p>
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspace/&lt;ID&gt;/video-series/&lt;ID&gt;/users/&lt;ID&gt;</code></p>
 
 <h4 id="embeddable-relationships">Embeddable Relationships</h4>
 
@@ -2977,12 +2977,12 @@ Assets should not need to be updated, these routes mostly exist in case there we
 <td>Productions shared with a user.</td>
 </tr>
 <tr>
-<td>owned_projects</td>
-<td>Projects the user created.</td>
+<td>owned_video_series</td>
+<td>Video Series the user created.</td>
 </tr>
 <tr>
-<td>shared_projects</td>
-<td>Projects shared with the user.</td>
+<td>shared_video_series</td>
+<td>Video Series shared with the user.</td>
 </tr>
 </tbody></table>
 
@@ -3650,7 +3650,7 @@ Assets should not need to be updated, these routes mostly exist in case there we
     </span><span class="nt">"card_brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visa"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"card_last_four"</span><span class="p">:</span><span class="w"> </span><span class="mi">4242</span><span class="p">,</span><span class="w">
     </span><span class="nt">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"projects"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"video_series"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"coachingPlatform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limited"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"templates"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limited"</span><span class="p">,</span><span class="w">
@@ -3716,8 +3716,8 @@ Assets should not need to be updated, these routes mostly exist in case there we
 <td>Productions belonging to a workspace.</td>
 </tr>
 <tr>
-<td>projects</td>
-<td>Projects belonging to a workspace.</td>
+<td>video_series</td>
+<td>Video Series belonging to a workspace.</td>
 </tr>
 <tr>
 <td>roles</td>
@@ -3776,7 +3776,7 @@ Assets should not need to be updated, these routes mostly exist in case there we
     </span><span class="nt">"card_brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visa"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"card_last_four"</span><span class="p">:</span><span class="w"> </span><span class="mi">4242</span><span class="p">,</span><span class="w">
     </span><span class="nt">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"projects"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"video_series"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"coachingPlatform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limited"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"templates"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limited"</span><span class="p">,</span><span class="w">
@@ -3832,8 +3832,8 @@ Assets should not need to be updated, these routes mostly exist in case there we
 <td>Productions belonging to a workspace.</td>
 </tr>
 <tr>
-<td>projects</td>
-<td>Projects belonging to a workspace.</td>
+<td>video_series</td>
+<td>Video Series belonging to a workspace.</td>
 </tr>
 <tr>
 <td>roles</td>
@@ -3899,7 +3899,7 @@ Assets should not need to be updated, these routes mostly exist in case there we
     </span><span class="nt">"card_brand"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nt">"card_last_four"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nt">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"projects"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"video_series"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"coachingPlatform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limited"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"templates"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limited"</span><span class="p">,</span><span class="w">
@@ -3992,7 +3992,7 @@ Assets should not need to be updated, these routes mostly exist in case there we
     </span><span class="nt">"card_brand"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nt">"card_last_four"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nt">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"projects"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"video_series"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"coachingPlatform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limited"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"templates"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limited"</span><span class="p">,</span><span class="w">
@@ -4069,9 +4069,9 @@ Assets should not need to be updated, these routes mostly exist in case there we
 <td>Array. Update workspace features. Administrators only.</td>
 </tr>
 <tr>
-<td>features.projects</td>
+<td>features.video_series</td>
 <td>no</td>
-<td>Boolean. Enables projects on a workspace.</td>
+<td>Boolean. Enables video_series on a workspace.</td>
 </tr>
 <tr>
 <td>features.users</td>
