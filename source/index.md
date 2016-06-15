@@ -13,10 +13,10 @@ includes:
   - api/briefs
   - api/industries
   - api/productions
-  - api/projects
   - api/revisions
   - api/shots
   - api/users
+  - api/video-series
   - api/workspaces
   - api/tail
   - errors

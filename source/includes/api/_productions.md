@@ -65,14 +65,14 @@ Productions route to get paginated collection scoped by workspace and project.
 Relationship | Description
 ------------ | -----------
 brief | Latest brief created for a production.
-owner | Person who created a production.
+created_by | Person who created a production.
 project | Project production belongs to, if any.
 template | Template production was created from, if any.
 workspace | Workspace a production belongs to.
 assets | Assets attached to a production.
 briefs | All briefs attached to a production.
 descriptions | Shot descriptions attached to a production.
-sharing_users | Users a production has been shared with.
+collaborators | Users a production has been shared with.
 snapshots | Production snapshots captured between status changes.
 
 #### Available Scopes
@@ -142,14 +142,14 @@ Route to get specific production scoped by workspace and project.
 Relationship | Description
 ------------ | -----------
 brief | Latest brief created for a production.
-owner | Person who created a production.
+created_by | Person who created a production.
 project | Project production belongs to, if any.
 template | Template production was created from, if any.
 workspace | Workspace a production belongs to.
 assets | Assets attached to a production.
 briefs | All briefs attached to a production.
 descriptions | Shot descriptions attached to a production.
-sharing_users | Users a production has been shared with.
+collaborators | Users a production has been shared with.
 snapshots | Production snapshots captured between status changes.
 
 #### Available Scopes

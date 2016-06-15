@@ -300,7 +300,7 @@ Parameter | Required | Description
 organization | no | Name of company.
 name | no | Name of workspace.
 path | no | URL slug for workspace. Depreciated.
-phone | no | Contact number for workspace owner.
+phone | no | Contact number for workspace manager.
 template_collection_id | no | Update workspace template collection. Administrators only.
 industry_id | no | Update workspace industry. Users with workspaces.update permission only.
 internal_notes | no | Workspace notes for internal usage. Administrators only.

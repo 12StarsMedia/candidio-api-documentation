@@ -45,7 +45,7 @@ Get revisions scoped by workspace and production.
 
 Relationship | Description
 ------------ | -----------
-owner | User who created a revision.
+created_by | User who created a revision.
 production | Productions a revision belongs to.
 workspace | Workspace a revision belongs to.
 assets | Assets that belong to a revision.
@@ -94,7 +94,7 @@ Get revision scoped by workspace and production.
 
 Relationship | Description
 ------------ | -----------
-owner | User who created a revision.
+created_by | User who created a revision.
 production | Productions a revision belongs to.
 workspace | Workspace a revision belongs to.
 assets | Assets that belong to a revision.

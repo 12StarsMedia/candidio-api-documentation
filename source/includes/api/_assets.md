@@ -72,7 +72,7 @@ workspace_id | no | For permissions, if action isn't performed by an admin and i
 Relationship | Description
 ------------ | -----------
 description | Shot description the asset is attached to, if any.
-owner | User who uploaded the asset.
+created_by | User who uploaded the asset.
 production | Production the asset is attached to, if any.
 workspace | Workspace the asset belongs to.
 
