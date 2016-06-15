@@ -223,7 +223,7 @@
 <td>Shot description the asset is attached to, if any.</td>
 </tr>
 <tr>
-<td>owner</td>
+<td>created_by</td>
 <td>User who uploaded the asset.</td>
 </tr>
 <tr>
@@ -1630,7 +1630,7 @@ Assets should not need to be updated, these routes mostly exist in case there we
 <td>Latest brief created for a production.</td>
 </tr>
 <tr>
-<td>owner</td>
+<td>created_by</td>
 <td>Person who created a production.</td>
 </tr>
 <tr>
@@ -1658,7 +1658,7 @@ Assets should not need to be updated, these routes mostly exist in case there we
 <td>Shot descriptions attached to a production.</td>
 </tr>
 <tr>
-<td>sharing_users</td>
+<td>collaborators</td>
 <td>Users a production has been shared with.</td>
 </tr>
 <tr>
@@ -1770,7 +1770,7 @@ Assets should not need to be updated, these routes mostly exist in case there we
 <td>Latest brief created for a production.</td>
 </tr>
 <tr>
-<td>owner</td>
+<td>created_by</td>
 <td>Person who created a production.</td>
 </tr>
 <tr>
@@ -1798,7 +1798,7 @@ Assets should not need to be updated, these routes mostly exist in case there we
 <td>Shot descriptions attached to a production.</td>
 </tr>
 <tr>
-<td>sharing_users</td>
+<td>collaborators</td>
 <td>Users a production has been shared with.</td>
 </tr>
 <tr>
@@ -2067,322 +2067,6 @@ Assets should not need to be updated, these routes mostly exist in case there we
 
 <p><code class="prettyprint">DELETE https://api.candidio.com/v1/workspaces/&lt;ID&gt;/projects/&lt;ID&gt;/productions/&lt;ID&gt;</code></p>
 
-          <h2 id="projects">Projects</h2>
-
-<h3 id="list-projects">List Projects</h3>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/projects?limit=100</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
-</code></pre>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prj_hashhere"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Project Name"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"internal_notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal notes about this project."</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
-    </span><span class="p">}],</span><span class="w">
-  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>These endpoints return a collection of paginated projects.</p>
-
-<h4 id="http-request">HTTP Request</h4>
-
-<p>Get projects.</p>
-
-<p><code class="prettyprint">GET https://api.candidio.com/v1/projects</code></p>
-
-<p>Get projects scoped by workspace.</p>
-
-<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/projects</code></p>
-
-<h4 id="embeddable-relationships">Embeddable Relationships</h4>
-
-<table><thead>
-<tr>
-<th>Relationship</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>owner</td>
-<td>User that created a project.</td>
-</tr>
-<tr>
-<td>productions</td>
-<td>Productions in a project.</td>
-</tr>
-<tr>
-<td>sharing_users</td>
-<td>Users a project has been shared with.</td>
-</tr>
-<tr>
-<td>workspace</td>
-<td>Workspace a project belongs to.</td>
-</tr>
-</tbody></table>
-
-<h4 id="available-scopes">Available Scopes</h4>
-
-<table><thead>
-<tr>
-<th>Scope</th>
-<th>Argument</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>user</td>
-<td>ID</td>
-<td>Scope projects by creator or sharing users.</td>
-</tr>
-<tr>
-<td>workspace</td>
-<td>ID</td>
-<td>Scope projects by workspace they belong to.</td>
-</tr>
-</tbody></table>
-
-<h3 id="get-a-specific-project">Get a Specific Project</h3>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/projects/&lt;ID&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
-</code></pre>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prj_hashhere"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Project Name"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"internal_notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal notes about this project."</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>These endpoints return a specific project.</p>
-
-<h4 id="http-request">HTTP Request</h4>
-
-<p>Get project.</p>
-
-<p><code class="prettyprint">GET https://api.candidio.com/v1/projects/&lt;ID&gt;</code></p>
-
-<p>Get project scoped by workspace.</p>
-
-<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/projects/&lt;ID&gt;</code></p>
-
-<h4 id="embeddable-relationships">Embeddable Relationships</h4>
-
-<table><thead>
-<tr>
-<th>Relationship</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>owner</td>
-<td>User that created a project.</td>
-</tr>
-<tr>
-<td>productions</td>
-<td>Productions in a project.</td>
-</tr>
-<tr>
-<td>sharing_users</td>
-<td>Users a project has been shared with.</td>
-</tr>
-<tr>
-<td>workspace</td>
-<td>Workspace a project belongs to.</td>
-</tr>
-</tbody></table>
-
-<h4 id="available-scopes">Available Scopes</h4>
-
-<table><thead>
-<tr>
-<th>Scope</th>
-<th>Argument</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>user</td>
-<td>ID</td>
-<td>Scope project by creator or sharing users.</td>
-</tr>
-<tr>
-<td>workspace</td>
-<td>ID</td>
-<td>Scope project by workspace it belongs to.</td>
-</tr>
-</tbody></table>
-
-<h3 id="create-project">Create Project</h3>
-<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/projects</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
-
-<span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Project Name"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prj_hashhere"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Project Name"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"internal_notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal notes about this project."</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>These endpoints create projects.</p>
-
-<h4 id="http-request">HTTP Request</h4>
-
-<p>Create project.</p>
-
-<p><code class="prettyprint">POST https://api.candidio.com/v1/projects</code></p>
-
-<p>Create project that belongs to a workspace.</p>
-
-<p><code class="prettyprint">POST https://api.candidio.com/v1/workspaces/&lt;ID&gt;/projects</code></p>
-
-<h4 id="json-payload-parameters">JSON Payload Parameters</h4>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>workspace_id</td>
-<td>yes*</td>
-<td>Defines workspace to assign shot to.</td>
-</tr>
-<tr>
-<td>name</td>
-<td>yes</td>
-<td>Project name.</td>
-</tr>
-<tr>
-<td>internal_notes</td>
-<td>no</td>
-<td>Internal notes, for administrators only.</td>
-</tr>
-</tbody></table>
-
-<h3 id="update-project">Update Project</h3>
-<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/projects/&lt;ID&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
-
-<span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Project Name Updated"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prj_hashhere"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Project Name Updated"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"internal_notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal notes about this project."</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>These endpoints update projects.</p>
-
-<h4 id="http-request">HTTP Request</h4>
-
-<p>Update project.</p>
-
-<p><code class="prettyprint">PUT https://api.candidio.com/v1/projects/&lt;ID&gt;</code></p>
-
-<p>Update project scoped by workspace.</p>
-
-<p><code class="prettyprint">PUT https://api.candidio.com/v1/workspaces/&lt;ID&gt;/projects/&lt;ID&gt;</code></p>
-
-<h4 id="json-payload-parameters">JSON Payload Parameters</h4>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>workspace_id</td>
-<td>yes*</td>
-<td>Defines workspace to scope shot by.</td>
-</tr>
-<tr>
-<td>name</td>
-<td>yes</td>
-<td>Project name.</td>
-</tr>
-<tr>
-<td>internal_notes</td>
-<td>no</td>
-<td>Internal notes, for administrators only.</td>
-</tr>
-</tbody></table>
-
-<h3 id="delete-project">Delete Project</h3>
-<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/projects/&lt;ID&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
-</code></pre>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"http_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>These endpoints delete a specific project.</p>
-
-<h4 id="http-request">HTTP Request</h4>
-
-<p>Delete a project.</p>
-
-<p><code class="prettyprint">DELETE https://api.candidio.com/v1/projects/&lt;ID&gt;</code></p>
-
-<p>Delete a project scoped by workspace.</p>
-
-<p><code class="prettyprint">DELETE https://api.candidio.com/v1/workspaces/&lt;ID&gt;/projects/&lt;ID&gt;</code></p>
-
           <h2 id="revisions">Revisions</h2>
 
 <h3 id="list-revisions">List Revisions</h3>
@@ -2430,7 +2114,7 @@ Assets should not need to be updated, these routes mostly exist in case there we
 </tr>
 </thead><tbody>
 <tr>
-<td>owner</td>
+<td>created_by</td>
 <td>User who created a revision.</td>
 </tr>
 <tr>
@@ -2508,7 +2192,7 @@ Assets should not need to be updated, these routes mostly exist in case there we
 </tr>
 </thead><tbody>
 <tr>
-<td>owner</td>
+<td>created_by</td>
 <td>User who created a revision.</td>
 </tr>
 <tr>
@@ -3617,6 +3301,334 @@ Assets should not need to be updated, these routes mostly exist in case there we
 
 <p><code class="prettyprint">DELETE https://api.candidio.com/v1/users/&lt;ID&gt;</code></p>
 
+          <h2 id="videoseries">VideoSeries</h2>
+
+<h3 id="list-videoseries">List VideoSeries</h3>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/video-series?limit=100</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"video-series"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vds_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VideoSeries title"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"audience"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"synopsis"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"turnaround"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"internal_notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal notes about this video-series."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints return a collection of paginated video-series.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Get video-series.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/video-series</code></p>
+
+<p>Get video-series scoped by workspace.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/video-series</code></p>
+
+<h4 id="embeddable-relationships">Embeddable Relationships</h4>
+
+<table><thead>
+<tr>
+<th>Relationship</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>created_by</td>
+<td>User that created a video-series.</td>
+</tr>
+<tr>
+<td>productions</td>
+<td>Productions in a video-series.</td>
+</tr>
+<tr>
+<td>collaborators</td>
+<td>Users a video-series has been shared with.</td>
+</tr>
+<tr>
+<td>workspace</td>
+<td>Workspace a video-series belongs to.</td>
+</tr>
+</tbody></table>
+
+<h4 id="available-scopes">Available Scopes</h4>
+
+<table><thead>
+<tr>
+<th>Scope</th>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user</td>
+<td>ID</td>
+<td>Scope video-series by creator or sharing users.</td>
+</tr>
+<tr>
+<td>workspace</td>
+<td>ID</td>
+<td>Scope video-series by workspace they belong to.</td>
+</tr>
+</tbody></table>
+
+<h3 id="get-a-specific-videoseries">Get a Specific VideoSeries</h3>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/video-series/&lt;ID&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"video-series"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vds_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VideoSeries Name"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"audience"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"synopsis"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"turnaround"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"internal_notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal notes about this video-series."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints return a specific video-series.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Get video-series.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/video-series/&lt;ID&gt;</code></p>
+
+<p>Get video-series scoped by workspace.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/video-series/&lt;ID&gt;</code></p>
+
+<h4 id="embeddable-relationships">Embeddable Relationships</h4>
+
+<table><thead>
+<tr>
+<th>Relationship</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>created_by</td>
+<td>User that created a video-series.</td>
+</tr>
+<tr>
+<td>productions</td>
+<td>Productions in a video-series.</td>
+</tr>
+<tr>
+<td>collaborators</td>
+<td>Users a video-series has been shared with.</td>
+</tr>
+<tr>
+<td>workspace</td>
+<td>Workspace a video-series belongs to.</td>
+</tr>
+</tbody></table>
+
+<h4 id="available-scopes">Available Scopes</h4>
+
+<table><thead>
+<tr>
+<th>Scope</th>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user</td>
+<td>ID</td>
+<td>Scope video-series by creator or sharing users.</td>
+</tr>
+<tr>
+<td>workspace</td>
+<td>ID</td>
+<td>Scope video-series by workspace it belongs to.</td>
+</tr>
+</tbody></table>
+
+<h3 id="create-videoseries">Create VideoSeries</h3>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/video-series</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VideoSeries Name"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"video-series"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vds_hashhere"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VideoSeries Name"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"audience"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"synopsis"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"turnaround"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"internal_notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal notes about this video-series."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints create video-series.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Create video-series.</p>
+
+<p><code class="prettyprint">POST https://api.candidio.com/v1/video-series</code></p>
+
+<p>Create video-series that belongs to a workspace.</p>
+
+<p><code class="prettyprint">POST https://api.candidio.com/v1/workspaces/&lt;ID&gt;/video-series</code></p>
+
+<h4 id="json-payload-parameters">JSON Payload Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>workspace_id</td>
+<td>yes*</td>
+<td>Defines workspace to assign shot to.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>yes</td>
+<td>VideoSeries title.</td>
+</tr>
+<tr>
+<td>internal_notes</td>
+<td>no</td>
+<td>Internal notes, for administrators only.</td>
+</tr>
+</tbody></table>
+
+<h3 id="update-videoseries">Update VideoSeries</h3>
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/video-series/&lt;ID&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VideoSeries Name Updated"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"video-series"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vds_hashhere"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VideoSeries Name Updated"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"audience"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"synopsis"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"turnaround"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"internal_notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal notes about this video-series."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints update video-series.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Update video-series.</p>
+
+<p><code class="prettyprint">PUT https://api.candidio.com/v1/video-series/&lt;ID&gt;</code></p>
+
+<p>Update video-series scoped by workspace.</p>
+
+<p><code class="prettyprint">PUT https://api.candidio.com/v1/workspaces/&lt;ID&gt;/video-series/&lt;ID&gt;</code></p>
+
+<h4 id="json-payload-parameters">JSON Payload Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>workspace_id</td>
+<td>yes*</td>
+<td>Defines workspace to scope shot by.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>yes</td>
+<td>VideoSeries title.</td>
+</tr>
+<tr>
+<td>internal_notes</td>
+<td>no</td>
+<td>Internal notes, for administrators only.</td>
+</tr>
+</tbody></table>
+
+<h3 id="delete-videoseries">Delete VideoSeries</h3>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/video-series/&lt;ID&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"http_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints delete a specific video-series.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Delete a video-series.</p>
+
+<p><code class="prettyprint">DELETE https://api.candidio.com/v1/video-series/&lt;ID&gt;</code></p>
+
+<p>Delete a video-series scoped by workspace.</p>
+
+<p><code class="prettyprint">DELETE https://api.candidio.com/v1/workspaces/&lt;ID&gt;/video-series/&lt;ID&gt;</code></p>
+
           <h2 id="workspaces">Workspaces</h2>
 
 <h3 id="list-workspaces">List Workspaces</h3>
@@ -4034,7 +4046,7 @@ Assets should not need to be updated, these routes mostly exist in case there we
 <tr>
 <td>phone</td>
 <td>no</td>
-<td>Contact number for workspace owner.</td>
+<td>Contact number for workspace manager.</td>
 </tr>
 <tr>
 <td>template_collection_id</td>
