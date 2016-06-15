@@ -25,7 +25,7 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
     "card_brand": "visa",
     "card_last_four": 4242,
     "features": {
-      "projects": false,
+      "video_series": false,
       "users": 1,
       "coachingPlatform": "Limited",
       "templates": "Limited",
@@ -74,7 +74,7 @@ assets | My Brand/Stock Library assets belonging to a workspace.
 descriptions | Shot descriptions. Depreciated.
 invites | Invitations to collaborate on workspace.
 productions | Productions belonging to a workspace.
-projects | Projects belonging to a workspace.
+video_series | Video Series belonging to a workspace.
 roles | Roles available on workspace. Includes custom roles.
 subscriptions | Stripe subscriptions workspace has.
 industry | Industry assigned to a workspace.
@@ -112,7 +112,7 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
     "card_brand": "visa",
     "card_last_four": 4242,
     "features": {
-      "projects": false,
+      "video_series": false,
       "users": 1,
       "coachingPlatform": "Limited",
       "templates": "Limited",
@@ -151,7 +151,7 @@ assets | My Brand/Stock Library assets belonging to a workspace.
 descriptions | Shot descriptions. Depreciated.
 invites | Invitations to collaborate on workspace.
 productions | Productions belonging to a workspace.
-projects | Projects belonging to a workspace.
+video_series | Video Series belonging to a workspace.
 roles | Roles available on workspace. Includes custom roles.
 subscriptions | Stripe subscriptions workspace has.
 industry | Industry assigned to a workspace.
@@ -197,7 +197,7 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
     "card_brand": null,
     "card_last_four": null,
     "features": {
-      "projects": false,
+      "video_series": false,
       "users": 1,
       "coachingPlatform": "Limited",
       "templates": "Limited",
@@ -266,7 +266,7 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
     "card_brand": null,
     "card_last_four": null,
     "features": {
-      "projects": false,
+      "video_series": false,
       "users": 1,
       "coachingPlatform": "Limited",
       "templates": "Limited",
@@ -305,7 +305,7 @@ template_collection_id | no | Update workspace template collection. Administrato
 industry_id | no | Update workspace industry. Users with workspaces.update permission only.
 internal_notes | no | Workspace notes for internal usage. Administrators only.
 features | no | Array. Update workspace features. Administrators only.
-features.projects | no | Boolean. Enables projects on a workspace.
+features.video_series | no | Boolean. Enables video_series on a workspace.
 features.users | no | Integer. Maximum number of Co-Producers allowed to collaborate.
 features.coachingPlatform | no | String. Type of coaching platform.
 features.templates | no | String. Templates allowed.

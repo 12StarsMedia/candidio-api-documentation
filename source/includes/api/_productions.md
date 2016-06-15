@@ -58,7 +58,7 @@ Productions route to get paginated collection scoped by workspace and user.
 
 Productions route to get paginated collection scoped by workspace and project.
 
-`GET https://api.candidio.com/v1/workspaces/<ID>/projects/<ID>/productions`
+`GET https://api.candidio.com/v1/workspaces/<ID>/video-series/<ID>/productions`
 
 #### Embeddable Relationships
 
@@ -135,7 +135,7 @@ Route to get specific production scoped by workspace and user.
 
 Route to get specific production scoped by workspace and project.
 
-`GET https://api.candidio.com/v1/workspaces/<ID>/projects/<ID>/productions/<ID>`
+`GET https://api.candidio.com/v1/workspaces/<ID>/video-series/<ID>/productions/<ID>`
 
 #### Embeddable Relationships
 
@@ -215,7 +215,7 @@ Route to create a production for a specific workspace.
 
 Route to create a production for a specific workspace and project.
 
-`POST https://api.candidio.com/v1/workspaces/<ID>/projects/<ID>/productions`
+`POST https://api.candidio.com/v1/workspaces/<ID>/video-series/<ID>/productions`
 
 #### JSON Payload Parameters
 
@@ -275,7 +275,7 @@ Route to update a production belonging to a specific workspace.
 
 Route to update a production belonging to a specific workspace and project.
 
-`PUT https://api.candidio.com/v1/workspaces/<ID>/projects/<ID>/productions/<ID>`
+`PUT https://api.candidio.com/v1/workspaces/<ID>/video-series/<ID>/productions/<ID>`
 
 #### JSON Payload Parameters
 
@@ -324,4 +324,4 @@ Route to delete a production belonging to a specific workspace.
 
 Route to delete a production belonging to a specific workspace and project.
 
-`DELETE https://api.candidio.com/v1/workspaces/<ID>/projects/<ID>/productions/<ID>`
+`DELETE https://api.candidio.com/v1/workspaces/<ID>/video-series/<ID>/productions/<ID>`

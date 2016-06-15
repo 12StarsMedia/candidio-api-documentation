@@ -89,7 +89,7 @@ Get users scoped by workspace and production.
 
 Get users scoped by workspace and project.
 
-`GET https://api.candidio.com/v1/workspace/<ID>/projects/<ID>/users`
+`GET https://api.candidio.com/v1/workspace/<ID>/video-series/<ID>/users`
 
 #### Embeddable Relationships
 
@@ -98,8 +98,8 @@ Relationship | Description
 workspaces | Workspaces a user is a member of.
 owned_productions | Productions the user created.
 shared_productions | Productions shared with a user.
-owned_projects | Projects the user created.
-shared_projects | Projects shared with the user.
+owned_video_series | Video Series the user created.
+shared_video_series | Video Series shared with the user.
 
 #### Available Scopes
 
@@ -188,7 +188,7 @@ Get user scoped by workspace and production.
 
 Get user scoped by workspace and project.
 
-`GET https://api.candidio.com/v1/workspace/<ID>/projects/<ID>/users/<ID>`
+`GET https://api.candidio.com/v1/workspace/<ID>/video-series/<ID>/users/<ID>`
 
 #### Embeddable Relationships
 
@@ -197,8 +197,8 @@ Relationship | Description
 workspaces | Workspaces a user is a member of.
 owned_productions | Productions the user created.
 shared_productions | Productions shared with a user.
-owned_projects | Projects the user created.
-shared_projects | Projects shared with the user.
+owned_video_series | Video Series the user created.
+shared_video_series | Video Series shared with the user.
 
 #### Available Scopes
 
