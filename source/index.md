@@ -15,6 +15,8 @@ includes:
   - api/productions
   - api/revisions
   - api/shots
+  - api/template-types
+  - api/templates
   - api/users
   - api/video-series
   - api/workspaces
