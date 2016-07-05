@@ -2734,6 +2734,571 @@ Assets should not need to be updated, these routes mostly exist in case there we
 
 <p><code class="prettyprint">DELETE https://api.candidio.com/v1/workspaces/&lt;ID&gt;/assets/&lt;ID&gt;/descriptions/&lt;ID&gt;/detach</code></p>
 
+          <h2 id="template-types">Template-Types</h2>
+
+<h3 id="list-template-types">List Template-Types</h3>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/template-types?limit=100</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"template_type"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tpt_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Template Name"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Template description."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:\/\/example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints return a collection of paginated template-types.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Get template-types.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/template-types</code></p>
+
+<h4 id="embeddable-relationships">Embeddable Relationships</h4>
+
+<table><thead>
+<tr>
+<th>Relationship</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>templates</td>
+<td>Templates belonging to this Template-Type.</td>
+</tr>
+</tbody></table>
+
+<h3 id="get-a-specific-template">Get a Specific Template</h3>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/template-types/&lt;ID&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"template_type"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tpt_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Template Name"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Template description."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:\/\/example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints return a specific template-type.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Get template-type.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/template-types/&lt;ID&gt;</code></p>
+
+<h4 id="embeddable-relationships">Embeddable Relationships</h4>
+
+<table><thead>
+<tr>
+<th>Relationship</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>templates</td>
+<td>Templates belonging to this Template-Type.</td>
+</tr>
+</tbody></table>
+
+<h3 id="create-template">Create Template</h3>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/template-types</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Template Name"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Template description."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:\/\/example.com"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"template_type"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tpt_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Template Name"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Template description."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:\/\/example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints create template-types.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Create template-type.</p>
+
+<p><code class="prettyprint">POST https://api.candidio.com/v1/template-types</code></p>
+
+<h4 id="json-payload-parameters">JSON Payload Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>yes</td>
+<td>Template-Type name.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>no</td>
+<td>Describes Template-Type.</td>
+</tr>
+<tr>
+<td>icon</td>
+<td>no</td>
+<td>URL to image for this Template-Type.</td>
+</tr>
+<tr>
+<td>is_published</td>
+<td>no</td>
+<td>Publishes Template-Type.</td>
+</tr>
+</tbody></table>
+
+<h3 id="update-template">Update Template</h3>
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/template-types/&lt;ID&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Updated template-type description."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"template_type"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tpt_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Template Name"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Updated template-type description."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:\/\/example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04 09:02:07"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints update template-types.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Update template-type.</p>
+
+<p><code class="prettyprint">PUT https://api.candidio.com/v1/template-types/&lt;ID&gt;</code></p>
+
+<h4 id="json-payload-parameters">JSON Payload Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>yes</td>
+<td>Template-Type name.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>no</td>
+<td>Describes Template-Type.</td>
+</tr>
+<tr>
+<td>icon</td>
+<td>no</td>
+<td>URL to image for this Template-Type.</td>
+</tr>
+<tr>
+<td>is_published</td>
+<td>no</td>
+<td>Publishes Template-Type.</td>
+</tr>
+</tbody></table>
+
+<h3 id="delete-template">Delete Template</h3>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/template-types/&lt;ID&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"http_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Delete an template-type.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Delete an template-type.</p>
+
+<p><code class="prettyprint">DELETE https://api.candidio.com/v1/template-types/&lt;ID&gt;</code></p>
+
+          <h2 id="templates">Templates</h2>
+
+<h3 id="list-templates">List Templates</h3>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/templates?limit=100</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"template"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tmp_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Template Name"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Template description."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints return a collection of paginated templates.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Get templates.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/templates</code></p>
+
+<h4 id="embeddable-relationships">Embeddable Relationships</h4>
+
+<table><thead>
+<tr>
+<th>Relationship</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>industry</td>
+<td>Industry this Template belongs to.</td>
+</tr>
+<tr>
+<td>workspace</td>
+<td>Workspace this Template belongs to.</td>
+</tr>
+<tr>
+<td>template_type</td>
+<td>Template-Type this Template belongs to.</td>
+</tr>
+</tbody></table>
+
+<h3 id="get-a-specific-template">Get a Specific Template</h3>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/templates/&lt;ID&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"template"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tmp_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Template Name"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Template description."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints return a specific template.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Get template.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/templates/&lt;ID&gt;</code></p>
+
+<h4 id="embeddable-relationships">Embeddable Relationships</h4>
+
+<table><thead>
+<tr>
+<th>Relationship</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>industry</td>
+<td>Industry this Template belongs to.</td>
+</tr>
+<tr>
+<td>workspace</td>
+<td>Workspace this Template belongs to.</td>
+</tr>
+<tr>
+<td>template_type</td>
+<td>Template-Type this Template belongs to.</td>
+</tr>
+</tbody></table>
+
+<h3 id="create-template">Create Template</h3>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/templates</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Template Name"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Template description."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"template"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"template"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tmp_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Template Name"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Template description."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"template"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints create templates.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Create template.</p>
+
+<p><code class="prettyprint">POST https://api.candidio.com/v1/templates</code></p>
+
+<h4 id="json-payload-parameters">JSON Payload Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>workspace_id</td>
+<td>no</td>
+<td>Workspace, if any, this template belongs to.</td>
+</tr>
+<tr>
+<td>industry_id</td>
+<td>no</td>
+<td>Industry this template belongs to.</td>
+</tr>
+<tr>
+<td>template_type_id</td>
+<td>no</td>
+<td>Template-Type for this Template.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>yes</td>
+<td>Template name.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>no</td>
+<td>Describes Template.</td>
+</tr>
+<tr>
+<td>template</td>
+<td>yes</td>
+<td>Production, brief, shots, etc. go here.</td>
+</tr>
+<tr>
+<td>is_published</td>
+<td>no</td>
+<td>Publishes template.</td>
+</tr>
+<tr>
+<td>editor_pick</td>
+<td>no</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>image_url</td>
+<td>no</td>
+<td>URL to image.</td>
+</tr>
+</tbody></table>
+
+<h3 id="update-template">Update Template</h3>
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/templates/&lt;ID&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Updated template description."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"template"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tmp_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Template Name"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Updated template description."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04 09:02:07"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints update templates.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Update template.</p>
+
+<p><code class="prettyprint">PUT https://api.candidio.com/v1/templates/&lt;ID&gt;</code></p>
+
+<h4 id="json-payload-parameters">JSON Payload Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>workspace_id</td>
+<td>no</td>
+<td>Workspace, if any, this template belongs to.</td>
+</tr>
+<tr>
+<td>industry_id</td>
+<td>no</td>
+<td>Industry this template belongs to.</td>
+</tr>
+<tr>
+<td>template_type_id</td>
+<td>no</td>
+<td>Template-Type for this Template.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>yes</td>
+<td>Template name.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>no</td>
+<td>Describes Template.</td>
+</tr>
+<tr>
+<td>template</td>
+<td>yes</td>
+<td>Production, brief, shots, etc. go here.</td>
+</tr>
+<tr>
+<td>is_published</td>
+<td>no</td>
+<td>Publishes template.</td>
+</tr>
+<tr>
+<td>editor_pick</td>
+<td>no</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>image_url</td>
+<td>no</td>
+<td>URL to image.</td>
+</tr>
+</tbody></table>
+
+<h3 id="delete-template">Delete Template</h3>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/templates/&lt;ID&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"http_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Delete an template.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Delete an template.</p>
+
+<p><code class="prettyprint">DELETE https://api.candidio.com/v1/templates/&lt;ID&gt;</code></p>
+
           <h2 id="users">Users</h2>
 
 <h3 id="list-users">List Users</h3>
