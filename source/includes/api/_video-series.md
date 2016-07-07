@@ -9,8 +9,6 @@ Content-Type: application/json
 Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 ```
 
-
-
 ```json
 {
 	"data": [{
@@ -54,6 +52,7 @@ Get video-series scoped by workspace.
 Relationship | Description
 ------------ | -----------
 created_by | User that created a video-series.
+assets | Assets belonging to this video-series.
 productions | Productions in a video-series.
 collaborators | Users a video-series has been shared with.
 workspace | Workspace a video-series belongs to.
@@ -73,8 +72,6 @@ Host: api.candidio.com
 Content-Type: application/json
 Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 ```
-
-
 
 ```json
 {
@@ -109,6 +106,7 @@ Get video-series scoped by workspace.
 Relationship | Description
 ------------ | -----------
 created_by | User that created a video-series.
+assets | Assets belonging to this video-series.
 productions | Productions in a video-series.
 collaborators | Users a video-series has been shared with.
 workspace | Workspace a video-series belongs to.
@@ -130,7 +128,8 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 
 {
   "data": {
-  		"title": "VideoSeries Name"
+  		"title": "VideoSeries Name",
+			"example_video": "ast_hashhere"
   }
 }
 ```
@@ -148,7 +147,26 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 		"turnaround": 5,
     "internal_notes": "Internal notes about this video-series.",
     "created_at": "2016-04-04 07:28:30",
-    "updated_at": "2016-04-04 07:28:30"
+    "updated_at": "2016-04-04 07:28:30",
+		"example_video": {
+				"type": "asset",
+				"id": "ast_hashhere",
+				"file_name": "file",
+				"file_type": "mp4",
+				"mimetype": "video\/mp4",
+				"size": 1234567890,
+				"video_duration": null,
+				"is_stock": false,
+				"is_transcoded": false,
+				"is_completed_production": false,
+				"link_download": "https:\/\/s3.amazonaws.com\/upload.candidio.com\/path\/to\/file.mp4",
+				"link_thumbnail": null,
+				"link_fullsize": null,
+				"link_preview_mp4": null,
+				"link_preview_webm": null,
+				"created_at": "2016-04-04 07:28:30",
+				"updated_at": "2016-04-04 07:28:30"
+		}
 	}
 }
 ```
@@ -183,7 +201,8 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 
 {
   "data": {
-  		"title": "VideoSeries Name Updated"
+  		"title": "VideoSeries Name Updated",
+			"example_video": "ast_hashhere"
   }
 }
 ```
@@ -201,7 +220,26 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 		"turnaround": 5,
     "internal_notes": "Internal notes about this video-series.",
     "created_at": "2016-04-04 07:28:30",
-    "updated_at": "2016-04-04 07:28:30"
+    "updated_at": "2016-04-04 07:28:30",
+		"example_video": {
+				"type": "asset",
+				"id": "ast_hashhere",
+				"file_name": "file",
+				"file_type": "mp4",
+				"mimetype": "video\/mp4",
+				"size": 1234567890,
+				"video_duration": null,
+				"is_stock": false,
+				"is_transcoded": false,
+				"is_completed_production": false,
+				"link_download": "https:\/\/s3.amazonaws.com\/upload.candidio.com\/path\/to\/file.mp4",
+				"link_thumbnail": null,
+				"link_fullsize": null,
+				"link_preview_mp4": null,
+				"link_preview_webm": null,
+				"created_at": "2016-04-04 07:28:30",
+				"updated_at": "2016-04-04 07:28:30"
+		}
 	}
 }
 ```
@@ -234,7 +272,6 @@ Host: api.candidio.com
 Content-Type: application/json
 Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 ```
-
 
 
 ```json
