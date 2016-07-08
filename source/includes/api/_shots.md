@@ -42,10 +42,6 @@ These endpoints return a collection of paginated shots.
 
 #### HTTP Request
 
-Get shots scoped by workspace.
-
-`GET https://api.candidio.com/v1/workspaces/<ID>/descriptions`
-
 Get shots scoped by workspace and production.
 
 `GET https://api.candidio.com/v1/workspaces/<ID>/productions/<ID>/descriptions`
@@ -100,10 +96,6 @@ These endpoints return a specific shot.
 
 #### HTTP Request
 
-Get shot scoped by workspace.
-
-`GET https://api.candidio.com/v1/workspaces/<ID>/descriptions/<ID>`
-
 Get shot scoped by workspace and production.
 
 `GET https://api.candidio.com/v1/workspaces/<ID>/productions/<ID>/descriptions/<ID>`
@@ -156,10 +148,6 @@ These endpoints create shots.
 
 #### HTTP Request
 
-Create shot that belongs to the workspace?? (this may be unecessary)
-
-`POST https://api.candidio.com/v1/workspaces/<ID>/descriptions`
-
 Create shot that belongs to a production.
 
 `POST https://api.candidio.com/v1/workspaces/<ID>/productions/<ID>/descriptions`
@@ -198,8 +186,6 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 }
 ```
 
-
-
 ```json
 {
 	"data": {
@@ -219,10 +205,6 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 These endpoints create shots.
 
 #### HTTP Request
-
-Update shot that belongs to the workspace?? (this may be unecessary)
-
-`PUT https://api.candidio.com/v1/workspaces/<ID>/descriptions/<ID>`
 
 Update shot that belongs to a production.
 
@@ -250,8 +232,6 @@ Content-Type: application/json
 Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 ```
 
-
-
 ```json
 {
 	"success": {
@@ -265,10 +245,6 @@ These endpoints delete a specific shot.
 
 #### HTTP Request
 
-Delete a shot scoped by workspace.
-
-`DELETE https://api.candidio.com/v1/workspaces/<ID>/descriptions/<ID>`
-
 Delete a shot scoped by workspace and production.
 
 `DELETE https://api.candidio.com/v1/workspaces/<ID>/productions/<ID>/descriptions/<ID>`
@@ -281,8 +257,6 @@ Host: api.candidio.com
 Content-Type: application/json
 Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 ```
-
-
 
 ```json
 {

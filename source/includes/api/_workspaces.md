@@ -62,10 +62,6 @@ Get workspaces.
 
 `GET https://api.candidio.com/v1/workspaces`
 
-Get workspaces scoped by user.
-
-`GET https://api.candidio.com/v1/users/<ID>/workspaces`
-
 #### Embeddable Relationships
 
 Relationship | Description
@@ -95,8 +91,6 @@ Host: api.candidio.com
 Content-Type: application/json
 Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 ```
-
-
 
 ```json
 {
@@ -138,10 +132,6 @@ These endpoints return a specific workspace.
 Get workspace.
 
 `GET https://api.candidio.com/v1/workspaces/<ID>`
-
-Get workspace scoped by user.
-
-`GET https://api.candidio.com/v1/users/<ID>/workspaces/<ID>`
 
 #### Embeddable Relationships
 
@@ -249,8 +239,6 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
   }
 }
 ```
-
-
 
 ```json
 {

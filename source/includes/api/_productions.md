@@ -9,8 +9,6 @@ Content-Type: application/json
 Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 ```
 
-
-
 ```json
 {
 	"data": [{
@@ -52,10 +50,6 @@ Productions route to get paginated collection scoped by workspace.
 
 `GET https://api.candidio.com/v1/workspaces/<ID>/productions`
 
-Productions route to get paginated collection scoped by workspace and user.
-
-`GET https://api.candidio.com/v1/workspaces/<ID>/users/<ID>/productions`
-
 Productions route to get paginated collection scoped by workspace and project.
 
 `GET https://api.candidio.com/v1/workspaces/<ID>/video-series/<ID>/productions`
@@ -96,8 +90,6 @@ Content-Type: application/json
 Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 ```
 
-
-
 ```json
 {
 	"data": {
@@ -128,10 +120,6 @@ Route to get specific production with no scopes.
 Route to get specific production scoped by workspace.
 
 `GET https://api.candidio.com/v1/workspaces/<ID>/productions/<ID>`
-
-Route to get specific production scoped by workspace and user.
-
-`GET https://api.candidio.com/v1/workspaces/<ID>/users/<ID>/productions/<ID>`
 
 Route to get specific production scoped by workspace and project.
 
@@ -179,8 +167,6 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
   }
 }
 ```
-
-
 
 ```json
 {
@@ -240,8 +226,6 @@ Content-Type: application/json
 Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 ```
 
-
-
 ```json
 {
 	"data": {
@@ -298,8 +282,6 @@ Host: api.candidio.com
 Content-Type: application/json
 Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 ```
-
-
 
 ```json
 {
