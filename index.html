@@ -266,14 +266,29 @@
 <td>Scope assets that are missing thumbnails or haven&rsquo;t had previews generated.</td>
 </tr>
 <tr>
-<td>production</td>
+<td>description</td>
 <td>ID</td>
-<td>Scope assets by production ID.</td>
+<td>Scope assets by description. ID optional.</td>
 </tr>
 <tr>
-<td>stock</td>
-<td>boolean</td>
-<td>Scope assets that belong to My Brand, or inverse.</td>
+<td>deliverable</td>
+<td>ID</td>
+<td>Scope assets by deliverable. ID optional.</td>
+</tr>
+<tr>
+<td>production</td>
+<td>ID</td>
+<td>Scope assets by production. ID optional.</td>
+</tr>
+<tr>
+<td>revision</td>
+<td>ID</td>
+<td>Scope assets by revision. ID optional.</td>
+</tr>
+<tr>
+<td>videoSeries</td>
+<td>ID</td>
+<td>Scope assets by video_series. ID optional.</td>
 </tr>
 <tr>
 <td>user</td>
@@ -358,6 +373,98 @@
 </tr>
 </tbody></table>
 
+<h4 id="embeddable-relationships">Embeddable Relationships</h4>
+
+<table><thead>
+<tr>
+<th>Relationship</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>description</td>
+<td>Shot description the asset is attached to, if any.</td>
+</tr>
+<tr>
+<td>created_by</td>
+<td>User who uploaded the asset.</td>
+</tr>
+<tr>
+<td>production</td>
+<td>Production the asset is attached to, if any.</td>
+</tr>
+<tr>
+<td>workspace</td>
+<td>Workspace the asset belongs to.</td>
+</tr>
+</tbody></table>
+
+<h4 id="available-scopes">Available Scopes</h4>
+
+<table><thead>
+<tr>
+<th>Scope</th>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>assetType</td>
+<td>audio,image,video,other</td>
+<td>Scopes assets by mimetype with fallback on file extension.</td>
+</tr>
+<tr>
+<td>completed</td>
+<td>boolean</td>
+<td>Scope assets that are completed productions, or inverse.</td>
+</tr>
+<tr>
+<td>descriptionType</td>
+<td>string</td>
+<td>Scope assets why attached shot description type.</td>
+</tr>
+<tr>
+<td>hasFailedJobs</td>
+<td>boolean</td>
+<td>Scope assets that are missing thumbnails or haven&rsquo;t had previews generated.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>ID</td>
+<td>Scope assets by description. ID optional.</td>
+</tr>
+<tr>
+<td>deliverable</td>
+<td>ID</td>
+<td>Scope assets by deliverable. ID optional.</td>
+</tr>
+<tr>
+<td>production</td>
+<td>ID</td>
+<td>Scope assets by production. ID optional.</td>
+</tr>
+<tr>
+<td>revision</td>
+<td>ID</td>
+<td>Scope assets by revision. ID optional.</td>
+</tr>
+<tr>
+<td>videoSeries</td>
+<td>ID</td>
+<td>Scope assets by video_series. ID optional.</td>
+</tr>
+<tr>
+<td>user</td>
+<td>ID</td>
+<td>Scope assets by user that created them.</td>
+</tr>
+<tr>
+<td>workspace</td>
+<td>ID</td>
+<td>Scope assets by workspace they belong to.</td>
+</tr>
+</tbody></table>
+
 <h3 id="create-asset">Create Asset</h3>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/v1/assets/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
@@ -407,7 +514,7 @@
 
 <p><code class="prettyprint">POST https://api.candidio.com/v1/assets</code></p>
 
-<p>To create an asset for a specific Workspace (Good for My Brand).</p>
+<p>To create an asset for a specific Workspace without assigning an Uploadable relation.</p>
 
 <p><code class="prettyprint">POST https://api.candidio.com/v1/workspaces/&lt;ID&gt;/assets</code></p>
 
@@ -434,19 +541,29 @@
 <td>Assign new asset to this workspace.</td>
 </tr>
 <tr>
-<td>data.user_id</td>
-<td>yes</td>
-<td>Assign new asset to this user.</td>
-</tr>
-<tr>
-<td>data.production_id</td>
-<td>sometimes*</td>
-<td>Assign new asset to this production.</td>
+<td>data.deliverable_id</td>
+<td>sometimes**</td>
+<td>Attach to Deliverable.</td>
 </tr>
 <tr>
 <td>data.description_id</td>
-<td>no</td>
-<td>Assign this description to new asset.</td>
+<td>sometimes**</td>
+<td>Attach to Description.</td>
+</tr>
+<tr>
+<td>data.production_id</td>
+<td>sometimes**</td>
+<td>Attach to Production.</td>
+</tr>
+<tr>
+<td>data.revision_id</td>
+<td>sometimes**</td>
+<td>Attach to Revision.</td>
+</tr>
+<tr>
+<td>data.video_series_id</td>
+<td>sometimes**</td>
+<td>Attach to Video-Series.</td>
 </tr>
 <tr>
 <td>data.bucket</td>
@@ -483,15 +600,11 @@
 <td>no</td>
 <td>Default <code class="prettyprint">false</code>, set <code class="prettyprint">true</code> for completed productions.</td>
 </tr>
-<tr>
-<td>data.is_stock</td>
-<td>no</td>
-<td>Set <code class="prettyprint">true</code> when creating asset for My Brand.</td>
-</tr>
 </tbody></table>
 
 <aside class="success">
-* Required IDs are not required when they are already present in the URL.
+* Workspace only required when creating on core assets route.
+** Only one Uploadable relationship ID may be used at a time.
 </aside>
 
 <h3 id="update-asset">Update Asset</h3>
@@ -561,36 +674,70 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>data.workspace_id</td>
-<td>no</td>
-<td>Assign new asset to this workspace.</td>
+<td>data.deliverable_id</td>
+<td>sometimes*</td>
+<td>Attach to Deliverable.</td>
 </tr>
 <tr>
-<td>data.user_id</td>
-<td>no</td>
-<td>Assign new asset to this user.</td>
+<td>data.description_id</td>
+<td>sometimes*</td>
+<td>Attach to Description.</td>
 </tr>
 <tr>
 <td>data.production_id</td>
-<td>no</td>
-<td>Assign new asset to this production.</td>
+<td>sometimes*</td>
+<td>Attach to Production.</td>
+</tr>
+<tr>
+<td>data.revision_id</td>
+<td>sometimes*</td>
+<td>Attach to Revision.</td>
+</tr>
+<tr>
+<td>data.video_series_id</td>
+<td>sometimes*</td>
+<td>Attach to Video-Series.</td>
+</tr>
+<tr>
+<td>data.bucket</td>
+<td>yes</td>
+<td>S3 bucket where file is located.</td>
+</tr>
+<tr>
+<td>data.object_key</td>
+<td>yes</td>
+<td>S3 object key of file.</td>
 </tr>
 <tr>
 <td>data.file_name</td>
-<td>no</td>
-<td>Original filename and display name.</td>
+<td>yes</td>
+<td>Original filename.</td>
 </tr>
 <tr>
-<td>data.is_stock</td>
-<td>no</td>
-<td>True is asset belongs to My Brand.</td>
+<td>data.file_type</td>
+<td>yes</td>
+<td>File extension.</td>
 </tr>
 <tr>
-<td>data.is_transcoded</td>
+<td>data.size</td>
+<td>yes</td>
+<td>Size of file in bytes.</td>
+</tr>
+<tr>
+<td>data.mimetype</td>
+<td>yes</td>
+<td>File mimetype.</td>
+</tr>
+<tr>
+<td>data.is_completed_production</td>
 <td>no</td>
-<td>True if asset has been transcoded.</td>
+<td>Default <code class="prettyprint">false</code>, set <code class="prettyprint">true</code> for completed productions.</td>
 </tr>
 </tbody></table>
+
+<aside class="success">
+* Only one Uploadable relationship ID may be used at a time.
+</aside>
 
 <aside class="success">
 Assets should not need to be updated, these routes mostly exist in case there were ever a need to correct mistakes.
@@ -3896,8 +4043,20 @@ Assets should not need to be updated, these routes mostly exist in case there we
 <td>User that created a video-series.</td>
 </tr>
 <tr>
+<td>example_video</td>
+<td>Asset containing an example of what videos in this series will look like.</td>
+</tr>
+<tr>
+<td>template</td>
+<td>Template to be used for Productions in this video-series.</td>
+</tr>
+<tr>
+<td>workspace</td>
+<td>Workspace a video-series belongs to.</td>
+</tr>
+<tr>
 <td>assets</td>
-<td>Assets belonging to this video-series.</td>
+<td>Brand assets belonging to this video-series.</td>
 </tr>
 <tr>
 <td>productions</td>
@@ -3906,10 +4065,6 @@ Assets should not need to be updated, these routes mostly exist in case there we
 <tr>
 <td>collaborators</td>
 <td>Users a video-series has been shared with.</td>
-</tr>
-<tr>
-<td>workspace</td>
-<td>Workspace a video-series belongs to.</td>
 </tr>
 </tbody></table>
 
@@ -3980,8 +4135,20 @@ Assets should not need to be updated, these routes mostly exist in case there we
 <td>User that created a video-series.</td>
 </tr>
 <tr>
+<td>example_video</td>
+<td>Asset containing an example of what videos in this series will look like.</td>
+</tr>
+<tr>
+<td>template</td>
+<td>Template to be used for Productions in this video-series.</td>
+</tr>
+<tr>
+<td>workspace</td>
+<td>Workspace a video-series belongs to.</td>
+</tr>
+<tr>
 <td>assets</td>
-<td>Assets belonging to this video-series.</td>
+<td>Brand assets belonging to this video-series.</td>
 </tr>
 <tr>
 <td>productions</td>
@@ -3990,10 +4157,6 @@ Assets should not need to be updated, these routes mostly exist in case there we
 <tr>
 <td>collaborators</td>
 <td>Users a video-series has been shared with.</td>
-</tr>
-<tr>
-<td>workspace</td>
-<td>Workspace a video-series belongs to.</td>
 </tr>
 </tbody></table>
 
@@ -4092,9 +4255,29 @@ Assets should not need to be updated, these routes mostly exist in case there we
 <td>Defines workspace to assign shot to.</td>
 </tr>
 <tr>
+<td>template_id</td>
+<td>no</td>
+<td>Template to use for Productions in this Video-Series.</td>
+</tr>
+<tr>
 <td>title</td>
 <td>yes</td>
-<td>VideoSeries title.</td>
+<td>Video-Series title.</td>
+</tr>
+<tr>
+<td>audience</td>
+<td>no</td>
+<td>Intended audience for this Video-Series.</td>
+</tr>
+<tr>
+<td>synopsis</td>
+<td>no</td>
+<td>Description of this Video-Series.</td>
+</tr>
+<tr>
+<td>turnaround</td>
+<td>no</td>
+<td>Number of days to turnaround a Production. Default 5.</td>
 </tr>
 <tr>
 <td>internal_notes</td>
@@ -4172,14 +4355,29 @@ Assets should not need to be updated, these routes mostly exist in case there we
 </tr>
 </thead><tbody>
 <tr>
-<td>workspace_id</td>
-<td>yes*</td>
-<td>Defines workspace to scope shot by.</td>
+<td>template_id</td>
+<td>no</td>
+<td>Template to use for Productions in this Video-Series.</td>
 </tr>
 <tr>
 <td>title</td>
 <td>yes</td>
-<td>VideoSeries title.</td>
+<td>Video-Series title.</td>
+</tr>
+<tr>
+<td>audience</td>
+<td>no</td>
+<td>Intended audience for this Video-Series.</td>
+</tr>
+<tr>
+<td>synopsis</td>
+<td>no</td>
+<td>Description of this Video-Series.</td>
+</tr>
+<tr>
+<td>turnaround</td>
+<td>no</td>
+<td>Number of days to turnaround a Production. Default 5.</td>
 </tr>
 <tr>
 <td>internal_notes</td>
