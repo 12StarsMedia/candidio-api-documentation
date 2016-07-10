@@ -84,8 +84,11 @@ assetType | audio,image,video,other | Scopes assets by mimetype with fallback on
 completed | boolean | Scope assets that are completed productions, or inverse.
 descriptionType | string | Scope assets why attached shot description type.
 hasFailedJobs | boolean | Scope assets that are missing thumbnails or haven't had previews generated.
-production | ID | Scope assets by production ID.
-stock | boolean | Scope assets that belong to My Brand, or inverse.
+description | ID | Scope assets by description. ID optional.
+deliverable | ID | Scope assets by deliverable. ID optional.
+production | ID | Scope assets by production. ID optional.
+revision | ID | Scope assets by revision. ID optional.
+videoSeries | ID | Scope assets by video_series. ID optional.
 user | ID | Scope assets by user that created them.
 workspace | ID | Scope assets by workspace they belong to.
 
@@ -148,6 +151,31 @@ include | no | Embed a related resource.
 scope | no | Scope by user, workspace, etc.
 workspace_id | no | For permissions, if action isn't performed by an admin and isn't set in URL.
 
+#### Embeddable Relationships
+
+Relationship | Description
+------------ | -----------
+description | Shot description the asset is attached to, if any.
+created_by | User who uploaded the asset.
+production | Production the asset is attached to, if any.
+workspace | Workspace the asset belongs to.
+
+#### Available Scopes
+
+Scope | Argument | Description
+----- | -------- | -----------
+assetType | audio,image,video,other | Scopes assets by mimetype with fallback on file extension.
+completed | boolean | Scope assets that are completed productions, or inverse.
+descriptionType | string | Scope assets why attached shot description type.
+hasFailedJobs | boolean | Scope assets that are missing thumbnails or haven't had previews generated.
+description | ID | Scope assets by description. ID optional.
+deliverable | ID | Scope assets by deliverable. ID optional.
+production | ID | Scope assets by production. ID optional.
+revision | ID | Scope assets by revision. ID optional.
+videoSeries | ID | Scope assets by video_series. ID optional.
+user | ID | Scope assets by user that created them.
+workspace | ID | Scope assets by workspace they belong to.
+
 ### Create Asset
 
 ```http
@@ -168,8 +196,6 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
     }
 }
 ```
-
-
 
 ```json
 {
@@ -203,7 +229,7 @@ Simple assets route, useful for admin level actions needing little scope.
 
 `POST https://api.candidio.com/v1/assets`
 
-To create an asset for a specific Workspace (Good for My Brand).
+To create an asset for a specific Workspace without assigning an Uploadable relation.
 
 `POST https://api.candidio.com/v1/workspaces/<ID>/assets`
 
@@ -220,9 +246,11 @@ Assets can also be created for public Productions.
 Parameter | Required | Description
 --------- | ------- | -----------
 data.workspace_id | yes\* | Assign new asset to this workspace.
-data.user_id | yes | Assign new asset to this user.
-data.production_id | sometimes\* | Assign new asset to this production.
-data.description_id | no | Assign this description to new asset.
+data.deliverable_id | sometimes\*\* | Attach to Deliverable.
+data.description_id | sometimes\*\* | Attach to Description.
+data.production_id | sometimes\*\* | Attach to Production.
+data.revision_id | sometimes\*\* | Attach to Revision.
+data.video_series_id | sometimes\*\* | Attach to Video-Series.
 data.bucket | yes | S3 bucket where file is located.
 data.object_key | yes | S3 object key of file.
 data.file_name | yes | Original filename.
@@ -230,10 +258,10 @@ data.file_type | yes | File extension.
 data.size | yes | Size of file in bytes.
 data.mimetype | yes | File mimetype.
 data.is_completed_production | no | Default `false`, set `true` for completed productions.
-data.is_stock | no | Set `true` when creating asset for My Brand.
 
 <aside class="success">
-* Required IDs are not required when they are already present in the URL.
+* Workspace only required when creating on core assets route.
+** Only one Uploadable relationship ID may be used at a time.
 </aside>
 
 ### Update Asset
@@ -256,8 +284,6 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
     }
 }
 ```
-
-
 
 ```json
 {
@@ -303,12 +329,22 @@ Update an asset while scoping within a specific production.
 
 Parameter | Required | Description
 --------- | ------- | -----------
-data.workspace_id | no | Assign new asset to this workspace.
-data.user_id | no | Assign new asset to this user.
-data.production_id | no | Assign new asset to this production.
-data.file_name | no | Original filename and display name.
-data.is_stock | no | True is asset belongs to My Brand.
-data.is_transcoded | no | True if asset has been transcoded.
+data.deliverable_id | sometimes\* | Attach to Deliverable.
+data.description_id | sometimes\* | Attach to Description.
+data.production_id | sometimes\* | Attach to Production.
+data.revision_id | sometimes\* | Attach to Revision.
+data.video_series_id | sometimes\* | Attach to Video-Series.
+data.bucket | yes | S3 bucket where file is located.
+data.object_key | yes | S3 object key of file.
+data.file_name | yes | Original filename.
+data.file_type | yes | File extension.
+data.size | yes | Size of file in bytes.
+data.mimetype | yes | File mimetype.
+data.is_completed_production | no | Default `false`, set `true` for completed productions.
+
+<aside class="success">
+* Only one Uploadable relationship ID may be used at a time.
+</aside>
 
 <aside class="success">
 Assets should not need to be updated, these routes mostly exist in case there were ever a need to correct mistakes.
@@ -322,8 +358,6 @@ Host: api.candidio.com
 Content-Type: application/json
 Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 ```
-
-
 
 ```json
 {

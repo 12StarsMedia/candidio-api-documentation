@@ -52,10 +52,12 @@ Get video-series scoped by workspace.
 Relationship | Description
 ------------ | -----------
 created_by | User that created a video-series.
-assets | Assets belonging to this video-series.
+example_video | Asset containing an example of what videos in this series will look like.
+template | Template to be used for Productions in this video-series.
+workspace | Workspace a video-series belongs to.
+assets | Brand assets belonging to this video-series.
 productions | Productions in a video-series.
 collaborators | Users a video-series has been shared with.
-workspace | Workspace a video-series belongs to.
 
 #### Available Scopes
 
@@ -106,10 +108,12 @@ Get video-series scoped by workspace.
 Relationship | Description
 ------------ | -----------
 created_by | User that created a video-series.
-assets | Assets belonging to this video-series.
+example_video | Asset containing an example of what videos in this series will look like.
+template | Template to be used for Productions in this video-series.
+workspace | Workspace a video-series belongs to.
+assets | Brand assets belonging to this video-series.
 productions | Productions in a video-series.
 collaborators | Users a video-series has been shared with.
-workspace | Workspace a video-series belongs to.
 
 #### Available Scopes
 
@@ -133,8 +137,6 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
   }
 }
 ```
-
-
 
 ```json
 {
@@ -188,7 +190,11 @@ Create video-series that belongs to a workspace.
 Parameter | Required | Description
 --------- | -------- | -----------
 workspace_id | yes* | Defines workspace to assign shot to.
-title | yes | VideoSeries title.
+template_id | no | Template to use for Productions in this Video-Series.
+title | yes | Video-Series title.
+audience | no | Intended audience for this Video-Series.
+synopsis | no | Description of this Video-Series.
+turnaround | no | Number of days to turnaround a Production. Default 5.
 internal_notes | no | Internal notes, for administrators only.
 
 ### Update VideoSeries
@@ -206,8 +212,6 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
   }
 }
 ```
-
-
 
 ```json
 {
@@ -260,8 +264,11 @@ Update video-series scoped by workspace.
 
 Parameter | Required | Description
 --------- | -------- | -----------
-workspace_id | yes* | Defines workspace to scope shot by.
-title | yes | VideoSeries title.
+template_id | no | Template to use for Productions in this Video-Series.
+title | yes | Video-Series title.
+audience | no | Intended audience for this Video-Series.
+synopsis | no | Description of this Video-Series.
+turnaround | no | Number of days to turnaround a Production. Default 5.
 internal_notes | no | Internal notes, for administrators only.
 
 ### Delete VideoSeries
