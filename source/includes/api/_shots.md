@@ -10,8 +10,6 @@ Content-Type: application/json
 Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 ```
 
-
-
 ```json
 {
 	"data": [{
@@ -48,7 +46,7 @@ Get shots scoped by workspace and production.
 
 Get shots for a public production while it remains in planning state. Authorization token is not required.
 
-`GET https://api.candidio.com/v1/workspaces/<ID>/productions/<ID>/descriptions/public`
+`GET https://api.candidio.com/v1/public/workspaces/<ID>/productions/<ID>/descriptions`
 
 #### Embeddable Relationships
 

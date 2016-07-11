@@ -239,7 +239,7 @@ To create an asset for a specific Production.
 
 Assets can also be created for public Productions.
 
-`POST https://api.candidio.com/v1/workspaces/<ID>/productions/<ID>/assets/public`
+`POST https://api.candidio.com/v1/public/workspaces/<ID>/productions/<ID>/assets`
 
 #### JSON Payload Parameters
 
