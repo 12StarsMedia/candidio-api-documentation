@@ -117,6 +117,10 @@ Route to get specific production with no scopes.
 
 `GET https://api.candidio.com/v1/productions/<ID>`
 
+Public route to get specific production with public uploads enabled.
+
+`GET https://api.candidio.com/v1/public/productions/<ID>`
+
 Route to get specific production scoped by workspace.
 
 `GET https://api.candidio.com/v1/workspaces/<ID>/productions/<ID>`

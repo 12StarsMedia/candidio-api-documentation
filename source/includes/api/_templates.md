@@ -9,8 +9,6 @@ Content-Type: application/json
 Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 ```
 
-
-
 ```json
 {
 	"data": [{
@@ -39,9 +37,13 @@ These endpoints return a collection of paginated templates.
 
 #### HTTP Request
 
-Get templates.
+Route to list templates.
 
 `GET https://api.candidio.com/v1/templates`
+
+Public route to list templates.
+
+`GET https://api.candidio.com/v1/public/templates`
 
 #### Embeddable Relationships
 
