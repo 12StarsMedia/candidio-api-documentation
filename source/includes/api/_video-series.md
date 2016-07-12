@@ -133,7 +133,7 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 {
   "data": {
   		"title": "VideoSeries Name",
-			"example_video": "ast_hashhere"
+			"example_video_id": "ast_hashhere"
   }
 }
 ```
@@ -191,6 +191,7 @@ Parameter | Required | Description
 --------- | -------- | -----------
 workspace_id | yes* | Defines workspace to assign shot to.
 template_id | no | Template to use for Productions in this Video-Series.
+example_video_id | no | Asset to use as example for this Video-Series.
 title | yes | Video-Series title.
 audience | no | Intended audience for this Video-Series.
 synopsis | no | Description of this Video-Series.
@@ -208,7 +209,7 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 {
   "data": {
   		"title": "VideoSeries Name Updated",
-			"example_video": "ast_hashhere"
+			"example_video_id": "ast_hashhere"
   }
 }
 ```
@@ -265,6 +266,7 @@ Update video-series scoped by workspace.
 Parameter | Required | Description
 --------- | -------- | -----------
 template_id | no | Template to use for Productions in this Video-Series.
+example_video_id | no | Asset to use as example for this Video-Series.
 title | yes | Video-Series title.
 audience | no | Intended audience for this Video-Series.
 synopsis | no | Description of this Video-Series.
