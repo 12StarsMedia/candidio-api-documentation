@@ -219,16 +219,12 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>description</td>
-<td>Shot description the asset is attached to, if any.</td>
-</tr>
-<tr>
 <td>created_by</td>
 <td>User who uploaded the asset.</td>
 </tr>
 <tr>
-<td>production</td>
-<td>Production the asset is attached to, if any.</td>
+<td>uploadable</td>
+<td>Uploadable relation.</td>
 </tr>
 <tr>
 <td>workspace</td>
@@ -382,16 +378,12 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>description</td>
-<td>Shot description the asset is attached to, if any.</td>
-</tr>
-<tr>
 <td>created_by</td>
 <td>User who uploaded the asset.</td>
 </tr>
 <tr>
-<td>production</td>
-<td>Production the asset is attached to, if any.</td>
+<td>uploadable</td>
+<td>Uploadable relation.</td>
 </tr>
 <tr>
 <td>workspace</td>
@@ -3993,9 +3985,9 @@ Assets should not need to be updated, these routes mostly exist in case there we
 
 <p><code class="prettyprint">DELETE https://api.candidio.com/v1/users/&lt;ID&gt;</code></p>
 
-          <h2 id="videoseries">VideoSeries</h2>
+          <h2 id="video-series">Video-Series</h2>
 
-<h3 id="list-videoseries">List VideoSeries</h3>
+<h3 id="list-video-series">List Video-Series</h3>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/video-series?limit=100</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -4009,7 +4001,9 @@ Assets should not need to be updated, these routes mostly exist in case there we
         </span><span class="nt">"audience"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"synopsis"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"turnaround"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"video_length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"120.0"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"internal_notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal notes about this video-series."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
     </span><span class="p">}],</span><span class="w">
@@ -4086,6 +4080,11 @@ Assets should not need to be updated, these routes mostly exist in case there we
 </tr>
 </thead><tbody>
 <tr>
+<td>published</td>
+<td>boolean</td>
+<td>Scope by published or unpublished Video-Series.</td>
+</tr>
+<tr>
 <td>user</td>
 <td>ID</td>
 <td>Scope video-series by creator or sharing users.</td>
@@ -4097,7 +4096,7 @@ Assets should not need to be updated, these routes mostly exist in case there we
 </tr>
 </tbody></table>
 
-<h3 id="get-a-specific-videoseries">Get a Specific VideoSeries</h3>
+<h3 id="get-a-specific-video-series">Get a Specific Video-Series</h3>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/video-series/&lt;ID&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -4111,7 +4110,9 @@ Assets should not need to be updated, these routes mostly exist in case there we
         </span><span class="nt">"audience"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"synopsis"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"turnaround"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"video_length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"120.0"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"internal_notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal notes about this video-series."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -4178,6 +4179,11 @@ Assets should not need to be updated, these routes mostly exist in case there we
 </tr>
 </thead><tbody>
 <tr>
+<td>published</td>
+<td>boolean</td>
+<td>Scope by published or unpublished Video-Series.</td>
+</tr>
+<tr>
 <td>user</td>
 <td>ID</td>
 <td>Scope video-series by creator or sharing users.</td>
@@ -4198,7 +4204,8 @@ Assets should not need to be updated, these routes mostly exist in case there we
 <span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VideoSeries Name"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"example_video_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ast_hashhere"</span><span class="w">
+            </span><span class="nt">"example_video_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ast_hashhere"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"video_length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"120.0"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -4210,7 +4217,9 @@ Assets should not need to be updated, these routes mostly exist in case there we
         </span><span class="nt">"audience"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"synopsis"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"turnaround"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"internal_notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal notes about this video-series."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"video_length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"120.0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"internal_notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal notes about this video-series."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"example_video"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4293,9 +4302,19 @@ Assets should not need to be updated, these routes mostly exist in case there we
 <td>Number of days to turnaround a Production. Default 5.</td>
 </tr>
 <tr>
+<td>video_length</td>
+<td>no</td>
+<td>Desired duration of videos in series.</td>
+</tr>
+<tr>
 <td>internal_notes</td>
 <td>no</td>
 <td>Internal notes, for administrators only.</td>
+</tr>
+<tr>
+<td>is_published</td>
+<td>no</td>
+<td>Visibility to Producers. Default is <code class="prettyprint">false</code>.</td>
 </tr>
 </tbody></table>
 
@@ -4320,7 +4339,9 @@ Assets should not need to be updated, these routes mostly exist in case there we
         </span><span class="nt">"audience"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"synopsis"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"turnaround"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"video_length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"120.0"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"internal_notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal notes about this video-series."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"example_video"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4398,9 +4419,19 @@ Assets should not need to be updated, these routes mostly exist in case there we
 <td>Number of days to turnaround a Production. Default 5.</td>
 </tr>
 <tr>
+<td>video_length</td>
+<td>no</td>
+<td>Desired duration of videos in series.</td>
+</tr>
+<tr>
 <td>internal_notes</td>
 <td>no</td>
 <td>Internal notes, for administrators only.</td>
+</tr>
+<tr>
+<td>is_published</td>
+<td>no</td>
+<td>Visibility to Producers. Default is <code class="prettyprint">false</code>.</td>
 </tr>
 </tbody></table>
 
