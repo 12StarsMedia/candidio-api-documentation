@@ -36,6 +36,8 @@ Welcome to the Candidio API documentation.
 
 ## Authentication
 
+
+
 ## Nesting Models
 
 You can embed related models and collections. Check documentation for specific relationships available on each resource. Dot notation can be used to retrieve further levels of nesting (i.e. ?inclue=workspace.users).

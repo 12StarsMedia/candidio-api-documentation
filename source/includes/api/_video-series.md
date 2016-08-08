@@ -1,6 +1,6 @@
-## VideoSeries
+## Video-Series
 
-### List VideoSeries
+### List Video-Series
 
 ```http
 GET /v1/video-series?limit=100 HTTP/1.1
@@ -18,7 +18,9 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 		"audience": "",
 		"synopsis": "",
 		"turnaround": 5,
+		"video_length": "120.0",
 		"internal_notes": "Internal notes about this video-series.",
+		"is_published": false,
     "created_at": "2016-04-04 07:28:30",
     "updated_at": "2016-04-04 07:28:30"
 	}],
@@ -63,10 +65,11 @@ collaborators | Users a video-series has been shared with.
 
 Scope | Argument | Description
 ----- | -------- | -----------
+published | boolean | Scope by published or unpublished Video-Series.
 user | ID | Scope video-series by creator or sharing users.
 workspace | ID | Scope video-series by workspace they belong to.
 
-### Get a Specific VideoSeries
+### Get a Specific Video-Series
 
 ```http
 GET /v1/video-series/<ID> HTTP/1.1
@@ -84,7 +87,9 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 		"audience": "",
 		"synopsis": "",
 		"turnaround": 5,
+		"video_length": "120.0",
 		"internal_notes": "Internal notes about this video-series.",
+		"is_published": false,
     "created_at": "2016-04-04 07:28:30",
     "updated_at": "2016-04-04 07:28:30"
 	}
@@ -119,6 +124,7 @@ collaborators | Users a video-series has been shared with.
 
 Scope | Argument | Description
 ----- | -------- | -----------
+published | boolean | Scope by published or unpublished Video-Series.
 user | ID | Scope video-series by creator or sharing users.
 workspace | ID | Scope video-series by workspace it belongs to.
 
@@ -133,7 +139,8 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 {
   "data": {
   		"title": "VideoSeries Name",
-			"example_video_id": "ast_hashhere"
+			"example_video_id": "ast_hashhere",
+			"video_length": "120.0"
   }
 }
 ```
@@ -147,7 +154,9 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 		"audience": "",
 		"synopsis": "",
 		"turnaround": 5,
-    "internal_notes": "Internal notes about this video-series.",
+		"video_length": "120.0",
+		"internal_notes": "Internal notes about this video-series.",
+		"is_published": false,
     "created_at": "2016-04-04 07:28:30",
     "updated_at": "2016-04-04 07:28:30",
 		"example_video": {
@@ -196,7 +205,9 @@ title | yes | Video-Series title.
 audience | no | Intended audience for this Video-Series.
 synopsis | no | Description of this Video-Series.
 turnaround | no | Number of days to turnaround a Production. Default 5.
+video_length | no | Desired duration of videos in series.
 internal_notes | no | Internal notes, for administrators only.
+is_published | no | Visibility to Producers. Default is `false`.
 
 ### Update VideoSeries
 
@@ -223,7 +234,9 @@ Authorization: Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ
 		"audience": "",
 		"synopsis": "",
 		"turnaround": 5,
+		"video_length": "120.0",
     "internal_notes": "Internal notes about this video-series.",
+		"is_published": true,
     "created_at": "2016-04-04 07:28:30",
     "updated_at": "2016-04-04 07:28:30",
 		"example_video": {
@@ -271,7 +284,9 @@ title | yes | Video-Series title.
 audience | no | Intended audience for this Video-Series.
 synopsis | no | Description of this Video-Series.
 turnaround | no | Number of days to turnaround a Production. Default 5.
+video_length | no | Desired duration of videos in series.
 internal_notes | no | Internal notes, for administrators only.
+is_published | no | Visibility to Producers. Default is `false`.
 
 ### Delete VideoSeries
 
