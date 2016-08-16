@@ -9,9 +9,11 @@ toc_footers:
   - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
+  - api/actions
   - api/assets
   - api/briefs
   - api/industries
+  - api/invites
   - api/productions
   - api/revisions
   - api/shots
@@ -30,7 +32,7 @@ search: true
 
 ## Introduction
 
-Welcome to the Candidio API documentation.
+Documentation for Candidio API 4.x
 
 # Topics
 
