@@ -1543,6 +1543,354 @@ Assets should not need to be updated, these routes mostly exist in case there we
 
 <p><code class="prettyprint">DELETE https://api.candidio.com/v1/workspaces/&lt;ID&gt;/productions/&lt;ID&gt;/briefs/&lt;ID&gt;</code></p>
 
+          <h2 id="deliverables">Deliverables</h2>
+
+<h3 id="list-deliverables">List Deliverables</h3>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/deliverables?limit=100</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"deliverable"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dlv_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"notes_for_producer"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Some notes about this deliverable to the Producer."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uploading"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints return a collection of paginated deliverables.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>List deliverables.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/deliverables</code></p>
+
+<p>List deliverables scoped by workspace.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/deliverables</code></p>
+
+<h4 id="embeddable-relationships">Embeddable Relationships</h4>
+
+<table><thead>
+<tr>
+<th>Relationship</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>created_by</td>
+<td>Admin who created this Deliverable.</td>
+</tr>
+<tr>
+<td>reviewed_by</td>
+<td>Admin who reviewed this Deliverable.</td>
+</tr>
+<tr>
+<td>production</td>
+<td>Production the Deliverable belongs to.</td>
+</tr>
+<tr>
+<td>revision</td>
+<td>Revision the Deliverable belongs to,  if any.</td>
+</tr>
+<tr>
+<td>assets</td>
+<td>Collection of assets that belong to this deliverable description.</td>
+</tr>
+</tbody></table>
+
+<h4 id="available-scopes">Available Scopes</h4>
+
+<table><thead>
+<tr>
+<th>Scope</th>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>production</td>
+<td>ID</td>
+<td>Scope deliverables by production they belong to.</td>
+</tr>
+<tr>
+<td>workspace</td>
+<td>ID</td>
+<td>Scope deliverables by workspace they belong to.</td>
+</tr>
+</tbody></table>
+
+<h3 id="get-a-specific-deliverable">Get a Specific Deliverable</h3>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/deliverables/dlv_hashhere</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"deliverable"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dlv_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"notes_for_producer"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Some notes about this deliverable to the Producer."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uploading"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints return a specific deliverable.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Get deliverable.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/deliverables/&lt;ID&gt;</code></p>
+
+<p>Get deliverable scoped by workspace.</p>
+
+<p><code class="prettyprint">GET https://api.candidio.com/v1/workspaces/&lt;ID&gt;/deliverables/&lt;ID&gt;</code></p>
+
+<h4 id="embeddable-relationships">Embeddable Relationships</h4>
+
+<table><thead>
+<tr>
+<th>Relationship</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>created_by</td>
+<td>Admin who created this Deliverable.</td>
+</tr>
+<tr>
+<td>reviewed_by</td>
+<td>Admin who reviewed this Deliverable.</td>
+</tr>
+<tr>
+<td>production</td>
+<td>Production the Deliverable belongs to.</td>
+</tr>
+<tr>
+<td>revision</td>
+<td>Revision the Deliverable belongs to,  if any.</td>
+</tr>
+<tr>
+<td>assets</td>
+<td>Collection of assets that belong to this deliverable description.</td>
+</tr>
+</tbody></table>
+
+<h4 id="available-scopes">Available Scopes</h4>
+
+<table><thead>
+<tr>
+<th>Scope</th>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>production</td>
+<td>ID</td>
+<td>Scope deliverables by production they belong to.</td>
+</tr>
+<tr>
+<td>workspace</td>
+<td>ID</td>
+<td>Scope deliverables by workspace they belong to.</td>
+</tr>
+</tbody></table>
+
+<h3 id="create-deliverable">Create Deliverable</h3>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/deliverables</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"reviewed_by_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usr_hashhere"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"production_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prd_hashhere"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"notes_for_producer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some notes about this deliverable to the Producer."</span><span class="p">,</span><span class="w">
+  </span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"deliverable"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dlv_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"notes_for_producer"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Some notes about this deliverable to the Producer."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uploading"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints create deliverables.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Create a deliverable.</p>
+
+<p><code class="prettyprint">POST https://api.candidio.com/v1/deliverables</code></p>
+
+<p><code class="prettyprint">POST https://api.candidio.com/v1/workspaces/&lt;ID&gt;/deliverables</code></p>
+
+<h4 id="json-payload-parameters">JSON Payload Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>reviewed_by_id</td>
+<td>no</td>
+<td>Admin who reviewed a deliverable.</td>
+</tr>
+<tr>
+<td>production_id</td>
+<td>yes</td>
+<td>Production this deliverable belongs to.</td>
+</tr>
+<tr>
+<td>revision_id</td>
+<td>no</td>
+<td>Revision this deliverable belongs to, if any.</td>
+</tr>
+<tr>
+<td>notes_for_producer</td>
+<td>no</td>
+<td>Notes for the Producer.</td>
+</tr>
+</tbody></table>
+
+<h3 id="update-deliverable">Update Deliverable</h3>
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/deliverables/dlv_hashhere</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"deliverable"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dlv_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"notes_for_producer"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Updated notes about this deliverable to the Producer."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reviewing"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"deliverable"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dlv_hashhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"notes_for_producer"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Updated notes about this deliverable to the Producer."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reviewing"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-04 07:28:30"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints create deliverables.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Update deliverable.</p>
+
+<p><code class="prettyprint">PUT https://api.candidio.com/v1/deliverables/&lt;ID&gt;</code></p>
+
+<p>Update deliverable scoping by workspace.</p>
+
+<p><code class="prettyprint">PUT https://api.candidio.com/v1/workspaces/&lt;ID&gt;/deliverables/&lt;ID&gt;</code></p>
+
+<h4 id="json-payload-parameters">JSON Payload Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>reviewed_by_id</td>
+<td>no</td>
+<td>Admin who reviewed a deliverable.</td>
+</tr>
+<tr>
+<td>revision_id</td>
+<td>no</td>
+<td>Revision this deliverable belongs to, if any.</td>
+</tr>
+<tr>
+<td>notes_for_producer</td>
+<td>no</td>
+<td>Notes for the Producer.status</td>
+</tr>
+<tr>
+<td>status</td>
+<td>no</td>
+<td>Switches the state of the Deliverable: uploading (default), reviewing, rejected, accepted.</td>
+</tr>
+<tr>
+<td>rating</td>
+<td>no</td>
+<td>Producer rating of the Deliverable to measure satisfaction: happy, neutral, sad.</td>
+</tr>
+</tbody></table>
+
+<h3 id="delete-deliverable">Delete Deliverable</h3>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/v1/workspaces/&lt;ID&gt;/deliverables/dlv_hashhere</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.candidio.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer n8P1vbHYYsznzb25oO3PiePEnLzaeRhdq7Zk8YUJ</span>
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"http_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>These endpoints delete a specific deliverable.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Delete a deliverable.</p>
+
+<p><code class="prettyprint">DELETE https://api.candidio.com/v1/deliverables/&lt;ID&gt;</code></p>
+
+<p>Delete a deliverable scoped by workspace.</p>
+
+<p><code class="prettyprint">DELETE https://api.candidio.com/v1/workspaces/&lt;ID&gt;/deliverables/&lt;ID&gt;</code></p>
+
           <h2 id="industries">Industries</h2>
 
 <h3 id="list-industries">List Industries</h3>
