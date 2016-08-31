@@ -12,6 +12,7 @@ includes:
   - api/actions
   - api/assets
   - api/briefs
+  - api/deliverables
   - api/industries
   - api/invites
   - api/productions
